@@ -18,7 +18,7 @@ dbskill 由 [dontbesilent](https://x.com/dontbesilent) 创建。从 16,152 条�
 
 ![dbskill 动态路由图](docs/skill-link-map-4x3.svg)
 
-## dbskill 解决什么问题
+## 周正skill 解决什么问题
 
 你不需要先学会一套复杂的方法，也不需要知道该调用哪个工具。把当下的业务、材料、选择或卡点交给 `/dbs`，它会根据对话上下文选择当前适合的 Skill。
 
@@ -143,20 +143,6 @@ dbskill 的重点是推进眼前真实的任务。它会先处理当前最有价
 
 ![dbskill 知识来源图](docs/knowledge-pipeline.svg)
 
-## 共同贡献者
-
-`dbs-content-risk-check` 的敏感词检查能力由以下共创者共同完善，他们的贡献不可替代：
-
-- [@Ronnie2025](https://github.com/Ronnie2025)
-- [@非著名投放小沈](https://xhslink.cn/m/4NSBjmZTC1j)
-
-## 作者与支持
-
-作者：[@dontbesilent](https://x.com/dontbesilent) · [小红书](https://xhslink.com/m/637xuspR4iI) · [抖音](https://v.douyin.com/pRUDhpBqOrc/)
-
-如需加入付费答疑群，可扫码或打开 [答疑群说明](https://mp.weixin.qq.com/s/RpwNjMo4M_er4GOrfCYt1g)。
-
-![付费答疑群二维码](docs/paid-qa-group-qrcode.png)
 
 ## 许可证
 
