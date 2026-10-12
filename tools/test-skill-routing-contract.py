@@ -13,8 +13,8 @@ spec.loader.exec_module(routing)
 
 class RoutingContract(unittest.TestCase):
     def setUp(self):
-        self.entry = (ROOT / "skills/dbs/SKILL.md").read_text(encoding="utf-8")
-        self.composition = (ROOT / "skills/dbs/references/composition-contract.md").read_text(encoding="utf-8")
+        self.entry = (ROOT / "skills/ZZ/SKILL.md").read_text(encoding="utf-8")
+        self.composition = (ROOT / "skills/ZZ/references/composition-contract.md").read_text(encoding="utf-8")
 
     def test_current_contract(self):
         self.assertEqual(routing.check_entry_contract(self.entry, self.composition), [])

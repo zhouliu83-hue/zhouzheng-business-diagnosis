@@ -7,22 +7,22 @@ import tempfile
 import unittest
 
 ROOT = Path(__file__).resolve().parents[1]
-spec = importlib.util.spec_from_file_location('discovery', ROOT / 'skills/dbs/scripts/list-official-skills.py')
+spec = importlib.util.spec_from_file_location('discovery', ROOT / 'skills/ZZ/scripts/list-official-skills.py')
 m = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(m)
 
 class Discovery(unittest.TestCase):
     def test_snapshot_and_project_catalog_match(self):
-        skill = ROOT / 'skills/dbs'
-        self.assertEqual([x['name'] for x in m.load_catalog(skill, ROOT) if x['name'] != 'dbs'],
+        skill = ROOT / 'skills/ZZ'
+        self.assertEqual([x['name'] for x in m.load_catalog(skill, ROOT) if x['name'] != 'ZZ'],
                          [x['name'] for x in m.load_catalog(skill, None)])
 
     def test_navigation_and_neighbors_are_distinct(self):
-        descriptions = {x['name']: x['description'] for x in m.load_catalog(ROOT / 'skills/dbs', ROOT)}
-        for name in ('dbs-video-navigation', 'dbs-video-extract', 'dbs-title-cover-intro', 'dbs-content-risk-check'):
+        descriptions = {x['name']: x['description'] for x in m.load_catalog(ROOT / 'skills/ZZ', ROOT)}
+        for name in ('ZZ-video-navigation', 'ZZ-video-extract', 'ZZ-title-cover-intro', 'ZZ-content-risk-check'):
             actual = m.read_frontmatter_description(ROOT / 'skills' / name / 'SKILL.md')
             self.assertEqual(actual, descriptions[name])
-        self.assertEqual(len({descriptions[n] for n in ('dbs-video-navigation', 'dbs-video-extract', 'dbs-title-cover-intro')}), 3)
+        self.assertEqual(len({descriptions[n] for n in ('ZZ-video-navigation', 'ZZ-video-extract', 'ZZ-title-cover-intro')}), 3)
 
     def test_missing_broken_and_conflicting_installations(self):
         with tempfile.TemporaryDirectory() as d:
@@ -37,7 +37,7 @@ class Discovery(unittest.TestCase):
             self.assertIsNone(m.locate_installed_skill('sample', roots))
 
     def test_multiline_description(self):
-        self.assertIn('理论溯源', m.read_frontmatter_description(ROOT/'skills/dbs-theory-grounding/SKILL.md'))
+        self.assertIn('理论溯源', m.read_frontmatter_description(ROOT/'skills/ZZ-theory-grounding/SKILL.md'))
 
 if __name__ == '__main__':
     unittest.main()

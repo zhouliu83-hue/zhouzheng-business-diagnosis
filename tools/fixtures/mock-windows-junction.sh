@@ -14,7 +14,7 @@ while [[ $# -gt 0 ]]; do
   esac
 done
 
-marker_name=".dbs-test-junction-target"
+marker_name=".ZZ-test-junction-target"
 
 entry_identity() {
   local entry="$1"

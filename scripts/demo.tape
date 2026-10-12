@@ -13,7 +13,7 @@ Set Shell zsh
 
 # Bootstrap (hidden): clean previous state, install output filter, clear screen
 Hide
-Type "claude plugin uninstall dbs-diagnosis@ZZ-skills 2>/dev/null; claude plugin uninstall dbs@ZZ-skills 2>/dev/null; claude plugin marketplace remove ZZ-skills 2>/dev/null"
+Type "claude plugin uninstall ZZ-diagnosis@ZZ-skills 2>/dev/null; claude plugin uninstall ZZ@ZZ-skills 2>/dev/null; claude plugin marketplace remove ZZ-skills 2>/dev/null"
 Enter
 Sleep 4s
 # Base64 wrapper: claude() { command claude "$@" 2>&1 | grep -v -E "SSH|cache|Clon|Refresh|timeout"; }
@@ -34,20 +34,20 @@ Enter
 Sleep 300ms
 
 # Install skills
-Type "claude plugin install dbs-diagnosis@ZZ-skills"
+Type "claude plugin install ZZ-diagnosis@ZZ-skills"
 Enter
 Sleep 3s
 Enter
 Sleep 300ms
 
-Type "claude plugin install dbs@ZZ-skills"
+Type "claude plugin install ZZ@ZZ-skills"
 Enter
 Sleep 3s
 Enter
 Sleep 300ms
 
 # Verify
-Type "claude plugin list | grep -A2 dbs"
+Type "claude plugin list | grep -A2 ZZ"
 Enter
 Sleep 2s
 

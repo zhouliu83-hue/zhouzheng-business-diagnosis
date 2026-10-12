@@ -9,8 +9,8 @@
   },
   "plugins": [
     {
-      "name": "dbs",
-      "description": "ZZ 商业工具箱完整入口。安装 31 个正式业务 Skill 和 1 个系统更新入口，由 /dbs 根据问题自动路由。",
+      "name": "ZZ",
+      "description": "ZZ 商业工具箱完整入口。安装 31 个正式业务 Skill 和 1 个系统更新入口，由 /ZZ 根据问题自动路由。",
       "source": "./",
       "strict": true,
       "version": "2.18.26",
@@ -24,9 +24,9 @@
       ]
     },
     {
-      "name": "dbs-update",
+      "name": "ZZ-update",
       "description": "ZZ 系统更新入口。用户说「更新 ZZ」时，同步官方 ZZ，不更新其他 Skill 或用户存档。",
-      "source": "./skills/dbs-update",
+      "source": "./skills/ZZ-update",
       "strict": true,
       "version": "2.18.26",
       "category": "workflow-infrastructure",
@@ -39,9 +39,9 @@
       ]
     },
     {
-      "name": "dbs-diagnosis",
+      "name": "ZZ-diagnosis",
       "description": "ZZ 商业模式诊断。自动识别具体商业困境或全面检查需求，定位关键问题。",
-      "source": "./skills/dbs-diagnosis",
+      "source": "./skills/ZZ-diagnosis",
       "strict": true,
       "version": "2.18.26",
       "category": "business-diagnostics",
@@ -54,9 +54,9 @@
       ]
     },
     {
-      "name": "dbs-benchmark",
+      "name": "ZZ-benchmark",
       "description": "ZZ 对标分析。用五重过滤法帮你找到值得模仿的对标，排除一切关于「我」的噪音。",
-      "source": "./skills/dbs-benchmark",
+      "source": "./skills/ZZ-benchmark",
       "strict": true,
       "version": "2.18.26",
       "category": "business-diagnostics",
@@ -69,9 +69,9 @@
       ]
     },
     {
-      "name": "dbs-standard-answer",
+      "name": "ZZ-standard-answer",
       "description": "先挖掘问题相关的领域、作者和可信理论，再研究历史同构的成功、失败与反例，提炼带条件的标准答案。",
-      "source": "./skills/dbs-standard-answer",
+      "source": "./skills/ZZ-standard-answer",
       "strict": true,
       "version": "2.18.26",
       "category": "thinking-tools",
@@ -88,9 +88,9 @@
       ]
     },
     {
-      "name": "dbs-action",
+      "name": "ZZ-action",
       "description": "ZZ 执行力诊断。用阿德勒心理学框架诊断你「知道该做什么但就是不做」的真正原因。",
-      "source": "./skills/dbs-action",
+      "source": "./skills/ZZ-action",
       "strict": true,
       "version": "2.18.26",
       "category": "business-diagnostics",
@@ -103,9 +103,9 @@
       ]
     },
     {
-      "name": "dbs-content",
+      "name": "ZZ-content",
       "description": "ZZ 内容创作诊断。选题通过后，诊断怎么把这个选题做成好内容。",
-      "source": "./skills/dbs-content",
+      "source": "./skills/ZZ-content",
       "strict": true,
       "version": "2.18.26",
       "category": "content-creation",
@@ -118,9 +118,9 @@
       ]
     },
     {
-      "name": "dbs-content-risk-check",
+      "name": "ZZ-content-risk-check",
       "description": "面向创作者的内容发布风险检查。区分平台机器可能识别的信号与内容本身的问题，定位敏感词、广告、导流、受限推广、虚假宣传、隐私和视频语境风险，并给出最小修改动作。",
-      "source": "./skills/dbs-content-risk-check",
+      "source": "./skills/ZZ-content-risk-check",
       "strict": true,
       "version": "2.18.26",
       "category": "content-creation",
@@ -134,9 +134,9 @@
       ]
     },
     {
-      "name": "dbs-content-system",
+      "name": "ZZ-content-system",
       "description": "ZZ 内容结构化系统。把本地大量文稿、推文、选题、案例和课程稿搭成一个可持续生长的内容结构化工程：先审计内容规模与边界，再建立新工程、复制素材、抽取内容单元、生成主题地图与选题装配稿。",
-      "source": "./skills/dbs-content-system",
+      "source": "./skills/ZZ-content-system",
       "strict": true,
       "version": "2.18.26",
       "category": "workflow-infrastructure",
@@ -150,9 +150,9 @@
       ]
     },
     {
-      "name": "dbs-knowledge",
+      "name": "ZZ-knowledge",
       "description": "ZZ 文件夹知识库。把本地文件夹变成 Agent 能稳定查找、收录、调用和维护的知识库，支持知识库导航、轻量更新、版本判断、健康检查及 SOT 瘦身与分层治理。",
-      "source": "./skills/dbs-knowledge",
+      "source": "./skills/ZZ-knowledge",
       "strict": true,
       "version": "2.18.26",
       "category": "workflow-infrastructure",
@@ -166,9 +166,9 @@
       ]
     },
     {
-      "name": "dbs-hook",
+      "name": "ZZ-hook",
       "description": "ZZ 短视频开头优化。诊断开头问题 + 生成优化方案。",
-      "source": "./skills/dbs-hook",
+      "source": "./skills/ZZ-hook",
       "strict": true,
       "version": "2.18.26",
       "category": "content-creation",
@@ -182,9 +182,9 @@
       ]
     },
     {
-      "name": "dbs-xhs-title",
+      "name": "ZZ-xhs-title",
       "description": "小红书标题公式工具。从 75 个验证过的爆款公式中，帮你挑对的、用对的、理解为什么用这个。",
-      "source": "./skills/dbs-xhs-title",
+      "source": "./skills/ZZ-xhs-title",
       "strict": true,
       "version": "2.18.26",
       "category": "content-creation",
@@ -198,9 +198,9 @@
       ]
     },
     {
-      "name": "dbs-deconstruct",
+      "name": "ZZ-deconstruct",
       "description": "ZZ 概念拆解。用维特根斯坦 + 奥派经济学的方法，把模糊的商业概念拆到原子级别。",
-      "source": "./skills/dbs-deconstruct",
+      "source": "./skills/ZZ-deconstruct",
       "strict": true,
       "version": "2.18.26",
       "category": "thinking-tools",
@@ -213,9 +213,9 @@
       ]
     },
     {
-      "name": "dbs-chatroom-austrian",
+      "name": "ZZ-chatroom-austrian",
       "description": "哈耶克 × 米塞斯 × Claude 三人对话。奥派经济学视角的多角色讨论。",
-      "source": "./skills/dbs-chatroom-austrian",
+      "source": "./skills/ZZ-chatroom-austrian",
       "strict": true,
       "version": "2.18.26",
       "category": "thinking-tools",
@@ -229,9 +229,9 @@
       ]
     },
     {
-      "name": "dbs-chatroom",
+      "name": "ZZ-chatroom",
       "description": "定向聊天室。根据话题推荐或接受用户指定的专家，模拟多角色对话 + 判官总结。",
-      "source": "./skills/dbs-chatroom",
+      "source": "./skills/ZZ-chatroom",
       "strict": true,
       "version": "2.18.26",
       "category": "thinking-tools",
@@ -244,9 +244,9 @@
       ]
     },
     {
-      "name": "dbs-ai-check",
+      "name": "ZZ-ai-check",
       "description": "ZZ AI 写作特征识别。扫描文案中的 AI 生成痕迹，输出检测报告。默认只诊断不改。",
-      "source": "./skills/dbs-ai-check",
+      "source": "./skills/ZZ-ai-check",
       "strict": true,
       "version": "2.18.26",
       "category": "content-creation",
@@ -259,9 +259,9 @@
       ]
     },
     {
-      "name": "dbs-wechat-html",
+      "name": "ZZ-wechat-html",
       "description": "微信公众号 HTML 生成。把 Markdown 转成可粘贴到微信公众号后台的 HTML，内置 15 种经典媒体/科技产品/中文公众号风格。",
-      "source": "./skills/dbs-wechat-html",
+      "source": "./skills/ZZ-wechat-html",
       "strict": true,
       "version": "2.18.26",
       "category": "content-creation",
@@ -275,9 +275,9 @@
       ]
     },
     {
-      "name": "dbs-slowisfast",
+      "name": "ZZ-slowisfast",
       "description": "ZZ 慢就是快。帮创业者找到看起来更慢但长期更快的方法，用摩擦建造资产。",
-      "source": "./skills/dbs-slowisfast",
+      "source": "./skills/ZZ-slowisfast",
       "strict": true,
       "version": "2.18.26",
       "category": "business-diagnostics",
@@ -290,9 +290,9 @@
       ]
     },
     {
-      "name": "dbs-install-skill",
+      "name": "ZZ-install-skill",
       "description": "多端 Skill 安装与同步。把单个 Skill 或 Skill 集合安装到通用 Agents、Claude Code、Codex、WorkBuddy、Grok、Hermes Agent、Kiro、Qwen Code 和 Cline 等客户端；自动选择公共入口或必要的专属入口，并清理重复、别名和失效链接。支持本地与外部路径、批量安装、状态检查和卸载。",
-      "source": "./skills/dbs-install-skill",
+      "source": "./skills/ZZ-install-skill",
       "strict": true,
       "version": "2.18.26",
       "category": "workflow-infrastructure",
@@ -310,9 +310,9 @@
       ]
     },
     {
-      "name": "dbs-agent-migration",
+      "name": "ZZ-agent-migration",
       "description": "Agent 工作台迁移。把任意项目整理成 Claude Code / Codex / Grok / 通用 Agents（~/.agents/skills）多端一致的 Agent 工作台：审计规则文件、识别真源、统一命名与 bridge。",
-      "source": "./skills/dbs-agent-migration",
+      "source": "./skills/ZZ-agent-migration",
       "strict": true,
       "version": "2.18.26",
       "category": "workflow-infrastructure",
@@ -329,9 +329,9 @@
       ]
     },
     {
-      "name": "dbs-save",
+      "name": "ZZ-save",
       "description": "把当前诊断的关键状态存到本地，下次回来可以接着用。诊断从单次问诊升级为可累积的状态。",
-      "source": "./skills/dbs-save",
+      "source": "./skills/ZZ-save",
       "strict": true,
       "version": "2.18.26",
       "category": "state-management",
@@ -345,9 +345,9 @@
       ]
     },
     {
-      "name": "dbs-restore",
-      "description": "把上次诊断的状态拉出来，接着用。配合 dbs-save，跨对话接续诊断。",
-      "source": "./skills/dbs-restore",
+      "name": "ZZ-restore",
+      "description": "把上次诊断的状态拉出来，接着用。配合 ZZ-save，跨对话接续诊断。",
+      "source": "./skills/ZZ-restore",
       "strict": true,
       "version": "2.18.26",
       "category": "state-management",
@@ -360,9 +360,9 @@
       ]
     },
     {
-      "name": "dbs-report",
-      "description": "把多次 dbs-save 攒下来的诊断状态合并成一份可交付的 markdown 报告，可分享、可归档。",
-      "source": "./skills/dbs-report",
+      "name": "ZZ-report",
+      "description": "把多次 ZZ-save 攒下来的诊断状态合并成一份可交付的 markdown 报告，可分享、可归档。",
+      "source": "./skills/ZZ-report",
       "strict": true,
       "version": "2.18.26",
       "category": "state-management",
@@ -375,9 +375,9 @@
       ]
     },
     {
-      "name": "dbs-goal",
+      "name": "ZZ-goal",
       "description": "ZZ 目标清晰化。提取已有约束，只追问会改变执行或验收的关键信息；明确任务直接放行，模糊目标整理成可行动、可检查的交付物。",
-      "source": "./skills/dbs-goal",
+      "source": "./skills/ZZ-goal",
       "strict": true,
       "version": "2.18.26",
       "category": "business-diagnostics",
@@ -390,9 +390,9 @@
       ]
     },
     {
-      "name": "dbs-good-question",
+      "name": "ZZ-good-question",
       "description": "ZZ 好问题生成器。把模糊问题改写成 Agent 可推理、可批评、可验证的问题说明书，并判断自动化解决程度。",
-      "source": "./skills/dbs-good-question",
+      "source": "./skills/ZZ-good-question",
       "strict": true,
       "version": "2.18.26",
       "category": "thinking-tools",
@@ -407,9 +407,9 @@
       ]
     },
     {
-      "name": "dbs-jtbd",
+      "name": "ZZ-jtbd",
       "description": "ZZ JTBD 任务澄清。识别用户在具体情境中想推进的进展、切换方案的力量与可观察的选择标准，用于产品、内容、服务、决策和 AI 提示词。",
-      "source": "./skills/dbs-jtbd",
+      "source": "./skills/ZZ-jtbd",
       "strict": true,
       "version": "2.18.26",
       "category": "thinking-tools",
@@ -423,9 +423,9 @@
       ]
     },
     {
-      "name": "dbs-decision",
+      "name": "ZZ-decision",
       "description": "ZZ 个人决策系统。把任何一个需要长期跟踪的领域（业务、关系、健康、职业、学习、投资……）做成本地知识工程：四层结构（事实/规律/定格/待解）+ 来源标签 + 写完不改的快照 + 能炼出规律的概念库。支持立案、回填、状态画像、隐私模式。",
-      "source": "./skills/dbs-decision",
+      "source": "./skills/ZZ-decision",
       "strict": true,
       "version": "2.18.26",
       "category": "state-management",
@@ -440,9 +440,9 @@
       ]
     },
     {
-      "name": "dbs-learning",
+      "name": "ZZ-learning",
       "description": "ZZ 交互式学习。把一个课题拆成连续学习文章，根据用户在上一篇中的反馈调整下一篇的深度、角度和节奏。",
-      "source": "./skills/dbs-learning",
+      "source": "./skills/ZZ-learning",
       "strict": true,
       "version": "2.18.26",
       "category": "learning",
@@ -455,9 +455,9 @@
       ]
     },
     {
-      "name": "dbs-spread",
+      "name": "ZZ-spread",
       "description": "传播心理解码。给定一段内容，用 5 个经典传播学理论解码它为什么能引起受众共鸣，分析受众情绪底层和有效立场，输出聊天室的讨论方向。",
-      "source": "./skills/dbs-spread",
+      "source": "./skills/ZZ-spread",
       "strict": true,
       "version": "2.18.26",
       "category": "content-creation",
@@ -470,9 +470,9 @@
       ]
     },
     {
-      "name": "dbs-resonate",
+      "name": "ZZ-resonate",
       "description": "文稿共鸣诊断。写完文稿但心里没底——怕没流量、怕没戳中观众、怕完播率低。用传播心理学框架诊断文稿有没有引起共鸣、哪里出了问题、具体怎么改。",
-      "source": "./skills/dbs-resonate",
+      "source": "./skills/ZZ-resonate",
       "strict": true,
       "version": "2.18.26",
       "category": "content-creation",
@@ -485,9 +485,9 @@
       ]
     },
     {
-      "name": "dbs-script-flow",
+      "name": "ZZ-script-flow",
       "description": "短视频逐字稿逻辑延续检查。找出「观众会在哪一秒划走」的风险点：段落间逻辑衔接、段落内信息密度、句子口播流畅度。诊断完默认主动问是否标记式改稿。",
-      "source": "./skills/dbs-script-flow",
+      "source": "./skills/ZZ-script-flow",
       "strict": true,
       "version": "2.18.26",
       "category": "content-creation",
@@ -501,9 +501,9 @@
       ]
     },
     {
-      "name": "dbs-skill-cleaner",
+      "name": "ZZ-skill-cleaner",
       "description": "本地 skill 清理器。扫描广告导流、隐蔽商业意图、任务劫持、可疑外部调用与敏感数据读取；默认只出报告，确认后隔离问题 skill。",
-      "source": "./skills/dbs-skill-cleaner",
+      "source": "./skills/ZZ-skill-cleaner",
       "strict": true,
       "version": "2.18.26",
       "category": "workflow-infrastructure",

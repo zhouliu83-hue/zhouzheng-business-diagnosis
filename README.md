@@ -10,7 +10,7 @@ ZZ 是 ZZ 的中文 AI Skills 工具箱，包含商业判断、内容创作、�
 
 支持豆包、WorkBuddy、Claude Code、Codex 和其他兼容 Skills 的 Agent。项目方法资料从 16,152 条公开推文中筛选整理，包含 4,176 个结构化知识原子。作者：[@ZZ](https://x.com/dontbesilent)
 
-**本次更新：** `/dbs` 在当前对话中直接处理问题，按需组合或对照方法，并明确告知实际使用的 Skill 名称及分工。
+**本次更新：** `/ZZ` 在当前对话中直接处理问题，按需组合或对照方法，并明确告知实际使用的 Skill 名称及分工。
 
 ## 目录
 
@@ -26,11 +26,11 @@ ZZ 是 ZZ 的中文 AI Skills 工具箱，包含商业判断、内容创作、�
 
 ## ZZ 是什么
 
-Skill 是一套针对某类任务编写的 Agent 指令。安装 ZZ 后，可以在 Agent 对话中调用 `/dbs` 或某个具体 Skill，例如 `/dbs-diagnosis`
+Skill 是一套针对某类任务编写的 Agent 指令。安装 ZZ 后，可以在 Agent 对话中调用 `/ZZ` 或某个具体 Skill，例如 `/ZZ-diagnosis`
 
-如果你还不知道从哪里开始，把问题交给 `/dbs`。它读取已有信息，判断现在适合直接处理、补充关键事实，还是请你选择方向；需要时使用一个 Skill、组合互补能力，或对照尝试不同方法
+如果你还不知道从哪里开始，把问题交给 `/ZZ`。它读取已有信息，判断现在适合直接处理、补充关键事实，还是请你选择方向；需要时使用一个 Skill、组合互补能力，或对照尝试不同方法
 
-`/dbs` 在当前对话中调用合适的方法并继续工作，你无需复制提示词或重复背景。一次聚焦一个目标，可以交付配套结果或保留不同解释；后续依据事实和反馈继续、调整或结束。简单问题可以直接回答，缺少匹配能力时会明确说明
+`/ZZ` 在当前对话中调用合适的方法并继续工作，你无需复制提示词或重复背景。一次聚焦一个目标，可以交付配套结果或保留不同解释；后续依据事实和反馈继续、调整或结束。简单问题可以直接回答，缺少匹配能力时会明确说明
 
 ZZ 常用于这些工作：
 
@@ -58,7 +58,7 @@ npx -y skills add dontbesilent2025/dbskill -g --all
 安装后，在目标 Agent 的对话中输入：
 
 ```text
-/dbs 新手入门
+/ZZ 新手入门
 ```
 
 如果目标 Agent 的命令名称带有命名空间，请使用它显示的完整名称。Claude Code 插件的命名方式见下文
@@ -69,22 +69,22 @@ npx -y skills add dontbesilent2025/dbskill -g --all
 
 ```bash
 claude plugin marketplace add dontbesilent2025/dbskill
-claude plugin install dbs@ZZ-skills
+claude plugin install ZZ@ZZ-skills
 ```
 
-安装完整插件后，Claude Code 会为命令添加 `dbs:` 命名空间：主入口是 `/dbs:dbs`，商业诊断是 `/dbs:dbs-diagnosis`，内容创作是 `/dbs:dbs-content`
+安装完整插件后，Claude Code 会为命令添加 `ZZ:` 命名空间：主入口是 `/ZZ:ZZ`，商业诊断是 `/ZZ:ZZ-diagnosis`，内容创作是 `/ZZ:ZZ-content`
 
 只安装一个能力时，可以安装对应插件，例如：
 
 ```bash
-claude plugin install dbs-diagnosis@ZZ-skills
+claude plugin install ZZ-diagnosis@ZZ-skills
 ```
 
 ![Claude Code 插件安装演示](demo.gif)
 
 ### 安装后没有看到命令
 
-先确认安装命令成功，并确认安装目标是当前正在使用的 Agent。Skills CLI 安装使用短命令，例如 `/dbs`；Claude Code 插件使用带命名空间的命令，例如 `/dbs:dbs`。每项 Skill 的入口以所在 Agent 实际显示的名称为准
+先确认安装命令成功，并确认安装目标是当前正在使用的 Agent。Skills CLI 安装使用短命令，例如 `/ZZ`；Claude Code 插件使用带命名空间的命令，例如 `/ZZ:ZZ`。每项 Skill 的入口以所在 Agent 实际显示的名称为准
 
 ## 开始使用
 
@@ -93,20 +93,20 @@ claude plugin install dbs-diagnosis@ZZ-skills
 在 Agent 对话框输入：
 
 ```text
-/dbs 新手入门
+/ZZ 新手入门
 ```
 
 主入口会介绍能处理的任务、如何选择 Skill，以及怎样开始。之后可以直接提交你正在处理的问题
 
-### 不确定从哪里开始：把问题交给 `/dbs`
+### 不确定从哪里开始：把问题交给 `/ZZ`
 
-把当前情况和问题写在 `/dbs` 后面。可以说得不完整，Agent 会先利用当前对话中已经提供的信息：
+把当前情况和问题写在 `/ZZ` 后面。可以说得不完整，Agent 会先利用当前对话中已经提供的信息：
 
 ```text
-/dbs 我做少儿编程课，有 40 个付费学员，但续费率很低。我不知道该先检查产品、定价还是客户匹配。
+/ZZ 我做少儿编程课，有 40 个付费学员，但续费率很低。我不知道该先检查产品、定价还是客户匹配。
 ```
 
-`/dbs` 会从已有材料直接开始，必要时提出一个影响判断的问题。用户偏好决定方向时会给出选项；多个方法有实际用途时会说明分工或比较依据。你继续补充事实即可，无需重发入口命令
+`/ZZ` 会从已有材料直接开始，必要时提出一个影响判断的问题。用户偏好决定方向时会给出选项；多个方法有实际用途时会说明分工或比较依据。你继续补充事实即可，无需重发入口命令
 
 如果只想了解适合哪些 Skill，或需要一段带到其他对话的提示词，直接说明即可
 
@@ -115,35 +115,35 @@ claude plugin install dbs-diagnosis@ZZ-skills
 在命令后附上问题、材料和希望得到的结果：
 
 ```text
-/dbs-diagnosis 我做收纳咨询，客户总觉得贵。请帮我判断需要检查哪些因素，并说明还缺哪些信息。
+/ZZ-diagnosis 我做收纳咨询，客户总觉得贵。请帮我判断需要检查哪些因素，并说明还缺哪些信息。
 ```
 
 ```text
-/dbs-content 我想讲“普通人别急着做个人 IP”。请根据这个选题设计内容方向和论证结构。
+/ZZ-content 我想讲“普通人别急着做个人 IP”。请根据这个选题设计内容方向和论证结构。
 ```
 
 ```text
-/dbs-title-cover-intro 这是准备拍的短视频稿。请按小红书发布，给我标题、封面文字和开头：粘贴文稿
+/ZZ-title-cover-intro 这是准备拍的短视频稿。请按小红书发布，给我标题、封面文字和开头：粘贴文稿
 ```
 
 ```text
-/dbs-knowledge 帮我整理这个本地文件夹，建立导航，之后可以按主题查资料。
+/ZZ-knowledge 帮我整理这个本地文件夹，建立导航，之后可以按主题查资料。
 ```
 
-在 Claude Code 插件方式下，把上述命令换成带命名空间的名称，例如 `/dbs:dbs-diagnosis`
+在 Claude Code 插件方式下，把上述命令换成带命名空间的名称，例如 `/ZZ:ZZ-diagnosis`
 
 ### 使用视频中的三位编号
 
-如果你从 ZZ 的视频中获得了一个三位编号，并且已经安装 `/dbs`，可以直接输入：
+如果你从 ZZ 的视频中获得了一个三位编号，并且已经安装 `/ZZ`，可以直接输入：
 
 ```text
-/dbs 123
+/ZZ 123
 ```
 
 将 `123` 替换为视频给出的编号。想查看当前可用的编号时，输入：
 
 ```text
-/dbs 给我所有隐藏级 skill
+/ZZ 给我所有隐藏级 skill
 ```
 
 编号提示词会在使用时从 GitHub 读取，因此 Agent 需要能够访问 GitHub。编号目录为空或暂时无法联网时，入口会说明当前状态。
@@ -152,9 +152,9 @@ claude plugin install dbs-diagnosis@ZZ-skills
 
 如果结果还需要补充，直接在当前对话中提供新事实、材料或修改意见。当前 Skill 会接着处理
 
-如果当前任务已经完成，又有新的目标，可以重新输入 `/dbs`，说明新目标。入口会依据当前对话和新目标重新推荐，不需要把前一个任务预先写成固定流程
+如果当前任务已经完成，又有新的目标，可以重新输入 `/ZZ`，说明新目标。入口会依据当前对话和新目标重新推荐，不需要把前一个任务预先写成固定流程
 
-需要跨对话保留阶段性结论时，可以调用 [`/dbs-save`](skills/dbs-save/SKILL.md) 存档；之后用 [`/dbs-restore`](skills/dbs-restore/SKILL.md) 恢复。存档默认保存在本机 `~/.dbs/`
+需要跨对话保留阶段性结论时，可以调用 [`/ZZ-save`](skills/ZZ-save/SKILL.md) 存档；之后用 [`/ZZ-restore`](skills/ZZ-restore/SKILL.md) 恢复。存档默认保存在本机 `~/.dbs/`
 
 ## 怎样提供任务材料
 
@@ -171,7 +171,7 @@ claude plugin install dbs-diagnosis@ZZ-skills
 例如，商业问题可以这样描述：
 
 ```text
-/dbs-diagnosis 我提供企业收纳咨询，客单价 3,000 元。最近 10 个咨询里有 6 个说贵，3 个没有回复。我试过打折，成交多了但交付时间也变长。请判断下一步先核实什么；如果信息不足，请问我最关键的一个问题。
+/ZZ-diagnosis 我提供企业收纳咨询，客单价 3,000 元。最近 10 个咨询里有 6 个说贵，3 个没有回复。我试过打折，成交多了但交付时间也变长。请判断下一步先核实什么；如果信息不足，请问我最关键的一个问题。
 ```
 
 如果任务需要本地文件、网页访问、视频处理或外部服务，Agent 还必须具备相应的文件访问、联网能力、工具或凭证。比如，视频数据提取和本地视频章节导航的运行条件不同；调用前可查看对应 Skill 的说明
@@ -182,20 +182,20 @@ claude plugin install dbs-diagnosis@ZZ-skills
 
 | 当前要做的事 | 入口 | 用途 |
 | --- | --- | --- |
-| 不确定该从哪个方法开始 | [`/dbs`](skills/dbs/SKILL.md) | 根据当前问题选择下一步，在对话中直接推进 |
-| 检查商业模式、客户或定价 | [`/dbs-diagnosis`](skills/dbs-diagnosis/SKILL.md) | 判断当前商业问题并形成诊断方向 |
-| 研究可以学习的同行或产品 | [`/dbs-benchmark`](skills/dbs-benchmark/SKILL.md) | 筛选对标并分析可借鉴之处 |
-| 澄清复杂需求或用户购买动机 | [`/dbs-good-question`](skills/dbs-good-question/SKILL.md)、[`/dbs-jtbd`](skills/dbs-jtbd/SKILL.md) | 把模糊问题说清楚，分析用户想完成的任务 |
-| 把选题发展成内容 | [`/dbs-content`](skills/dbs-content/SKILL.md) | 设计内容结构、论证和表达方案 |
-| 检查已写好的稿件 | [`/dbs-resonate`](skills/dbs-resonate/SKILL.md)、[`/dbs-script-flow`](skills/dbs-script-flow/SKILL.md) | 检查受众共鸣、段落衔接和表达流畅度 |
-| 设计标题、封面文字和短视频开头 | [`/dbs-title-cover-intro`](skills/dbs-title-cover-intro/SKILL.md) | 根据文稿和拍摄状态生成或修改配套文案 |
-| 提取短视频数据或语音文字稿 | [`/dbs-video-extract`](skills/dbs-video-extract/SKILL.md) | 根据平台链接获取作品信息和转写内容；部分功能需要外部服务凭证 |
-| 为本地视频添加章节导航 | [`/dbs-video-navigation`](skills/dbs-video-navigation/SKILL.md) | 根据视频或带时间戳字幕生成章节导航和进度条 |
-| 发布前检查内容风险 | [`/dbs-content-risk-check`](skills/dbs-content-risk-check/SKILL.md) | 定位可能的审核信号和需要调整的内容 |
-| 梳理行动阻滞或长期选择 | [`/dbs-action`](skills/dbs-action/SKILL.md)、[`/dbs-decision`](skills/dbs-decision/SKILL.md) | 分析执行卡点，记录并复盘决策 |
-| 整理本地文件供 Agent 查找 | [`/dbs-knowledge`](skills/dbs-knowledge/SKILL.md) | 建立和维护文件夹知识库 |
+| 不确定该从哪个方法开始 | [`/ZZ`](skills/ZZ/SKILL.md) | 根据当前问题选择下一步，在对话中直接推进 |
+| 检查商业模式、客户或定价 | [`/ZZ-diagnosis`](skills/ZZ-diagnosis/SKILL.md) | 判断当前商业问题并形成诊断方向 |
+| 研究可以学习的同行或产品 | [`/ZZ-benchmark`](skills/ZZ-benchmark/SKILL.md) | 筛选对标并分析可借鉴之处 |
+| 澄清复杂需求或用户购买动机 | [`/ZZ-good-question`](skills/ZZ-good-question/SKILL.md)、[`/ZZ-jtbd`](skills/ZZ-jtbd/SKILL.md) | 把模糊问题说清楚，分析用户想完成的任务 |
+| 把选题发展成内容 | [`/ZZ-content`](skills/ZZ-content/SKILL.md) | 设计内容结构、论证和表达方案 |
+| 检查已写好的稿件 | [`/ZZ-resonate`](skills/ZZ-resonate/SKILL.md)、[`/ZZ-script-flow`](skills/ZZ-script-flow/SKILL.md) | 检查受众共鸣、段落衔接和表达流畅度 |
+| 设计标题、封面文字和短视频开头 | [`/ZZ-title-cover-intro`](skills/ZZ-title-cover-intro/SKILL.md) | 根据文稿和拍摄状态生成或修改配套文案 |
+| 提取短视频数据或语音文字稿 | [`/ZZ-video-extract`](skills/ZZ-video-extract/SKILL.md) | 根据平台链接获取作品信息和转写内容；部分功能需要外部服务凭证 |
+| 为本地视频添加章节导航 | [`/ZZ-video-navigation`](skills/ZZ-video-navigation/SKILL.md) | 根据视频或带时间戳字幕生成章节导航和进度条 |
+| 发布前检查内容风险 | [`/ZZ-content-risk-check`](skills/ZZ-content-risk-check/SKILL.md) | 定位可能的审核信号和需要调整的内容 |
+| 梳理行动阻滞或长期选择 | [`/ZZ-action`](skills/ZZ-action/SKILL.md)、[`/ZZ-decision`](skills/ZZ-decision/SKILL.md) | 分析执行卡点，记录并复盘决策 |
+| 整理本地文件供 Agent 查找 | [`/ZZ-knowledge`](skills/ZZ-knowledge/SKILL.md) | 建立和维护文件夹知识库 |
 
-`dbs-hook` 和 `dbs-xhs-title` 是旧版兼容入口。新任务请使用 `dbs-title-cover-intro`
+`ZZ-hook` 和 `ZZ-xhs-title` 是旧版兼容入口。新任务请使用 `ZZ-title-cover-intro`
 
 ## 仓库资料
 
@@ -230,7 +230,7 @@ claude plugin install dbs-diagnosis@ZZ-skills
 
 ## 贡献者
 
-`dbs-content-risk-check` 的敏感词检查能力由以下共创者共同完善：
+`ZZ-content-risk-check` 的敏感词检查能力由以下共创者共同完善：
 
 - [@Ronnie2025](https://github.com/Ronnie2025)
 - [@非著名投放小沈](https://xhslink.cn/m/4NSBjmZTC1j)

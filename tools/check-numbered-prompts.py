@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Validate the public numbered prompts shipped inside the dbs Skill."""
+"""Validate the public numbered prompts shipped inside the ZZ Skill."""
 
 from __future__ import annotations
 
@@ -23,7 +23,7 @@ REQUIRED_SECTIONS = (
 
 
 def validate(root: Path) -> list[str]:
-    prompt_root = root / "skills" / "dbs" / "numbered-prompts"
+    prompt_root = root / "skills" / "ZZ" / "numbered-prompts"
     errors: list[str] = []
     state_file = prompt_root / "allocation.json"
     if not state_file.is_file():
@@ -132,7 +132,7 @@ def main() -> int:
         for error in errors:
             print(f"ERROR: {error}", file=sys.stderr)
         return 1
-    prompt_root = root / "skills" / "dbs" / "numbered-prompts"
+    prompt_root = root / "skills" / "ZZ" / "numbered-prompts"
     count = sum(1 for entry in prompt_root.iterdir() if entry.is_dir())
     print(f"编号提示词校验通过：{count} 个编号")
     return 0

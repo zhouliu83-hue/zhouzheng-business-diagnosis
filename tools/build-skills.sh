@@ -19,25 +19,25 @@ trap 'rm -rf "$INNER_DIR"' EXIT
 # skill 名 → 分组目录
 group_for() {
   case "$1" in
-    dbs|dbs-update)
+    ZZ|ZZ-update)
       echo "必装入口" ;;
-    dbs-diagnosis|dbs-standard-answer|dbs-theory-grounding|dbs-deconstruct|dbs-goal|dbs-good-question|dbs-jtbd|dbs-action)
+    ZZ-diagnosis|ZZ-standard-answer|ZZ-theory-grounding|ZZ-deconstruct|ZZ-goal|ZZ-good-question|ZZ-jtbd|ZZ-action)
       echo "看商业问题" ;;
-    dbs-content|dbs-content-value|dbs-video-navigation|dbs-content-risk-check|dbs-benchmark|dbs-title-cover-intro|dbs-hook|dbs-xhs-title|dbs-ai-check|dbs-wechat-html|dbs-spread|dbs-resonate|dbs-script-flow|dbs-video-extract)
+    ZZ-content|ZZ-content-value|ZZ-video-navigation|ZZ-content-risk-check|ZZ-benchmark|ZZ-title-cover-intro|ZZ-hook|ZZ-xhs-title|ZZ-ai-check|ZZ-wechat-html|ZZ-spread|ZZ-resonate|ZZ-script-flow|ZZ-video-extract)
       echo "做内容" ;;
-    dbs-content-system)
+    ZZ-content-system)
       echo "进阶-内容工程" ;;
-    dbs-knowledge)
+    ZZ-knowledge)
       echo "进阶-知识库" ;;
-    dbs-chatroom|dbs-chatroom-austrian)
+    ZZ-chatroom|ZZ-chatroom-austrian)
       echo "进阶-聊天室" ;;
-    dbs-save|dbs-restore|dbs-report)
+    ZZ-save|ZZ-restore|ZZ-report)
       echo "进阶-状态管理" ;;
-    dbs-decision)
+    ZZ-decision)
       echo "进阶-决策系统" ;;
-    dbs-agent-migration|dbs-install-skill|dbs-skill-maker)
+    ZZ-agent-migration|ZZ-install-skill|ZZ-skill-maker)
       echo "进阶-Agent基建" ;;
-    dbs-learning)
+    ZZ-learning)
       echo "进阶-学习" ;;
     *)
       echo "未分组" ;;
@@ -161,68 +161,68 @@ Trae Solo 一个 zip 装一个 skill。本压缩包按使用场景分了几个�
 
 ## 必装入口
 
-- **dbs** — 主入口，根据你的问题自动路由到合适的诊断 skill。其他 skill 都依赖它，先装这个。
-- **dbs-update** — 更新 ZZ。安装后直接对 Agent 说「更新 ZZ」。
+- **ZZ** — 主入口，根据你的问题自动路由到合适的诊断 skill。其他 skill 都依赖它，先装这个。
+- **ZZ-update** — 更新 ZZ。安装后直接对 Agent 说「更新 ZZ」。
 
 ## 看商业问题
 
-- **dbs-diagnosis** — 商业模式诊断（根据用户问题自动选择诊断流程）
-- **dbs-theory-grounding** — 理论溯源与案例重释（审查命题、核实理论来源并标明适用边界）
-- **dbs-standard-answer** — 理论挖掘与历史同构研究（先找相关领域、作者和理论，再提炼带条件的历史答案）
-- **dbs-deconstruct** — 概念拆解（维特根斯坦 + 奥派经济学）
-- **dbs-goal** — 目标清晰化（把「我想做个人 IP」这种愿望语法审计成可检查的交付物）
-- **dbs-good-question** — 好问题生成器（把模糊问题改成 Agent 可推理、可验证的问题说明书）
-- **dbs-jtbd** — JTBD 任务澄清（识别情境中的进展、切换力量与选择标准）
-- **dbs-action** — 执行力诊断（阿德勒心理学，「知道该做但就是不做」）
+- **ZZ-diagnosis** — 商业模式诊断（根据用户问题自动选择诊断流程）
+- **ZZ-theory-grounding** — 理论溯源与案例重释（审查命题、核实理论来源并标明适用边界）
+- **ZZ-standard-answer** — 理论挖掘与历史同构研究（先找相关领域、作者和理论，再提炼带条件的历史答案）
+- **ZZ-deconstruct** — 概念拆解（维特根斯坦 + 奥派经济学）
+- **ZZ-goal** — 目标清晰化（把「我想做个人 IP」这种愿望语法审计成可检查的交付物）
+- **ZZ-good-question** — 好问题生成器（把模糊问题改成 Agent 可推理、可验证的问题说明书）
+- **ZZ-jtbd** — JTBD 任务澄清（识别情境中的进展、切换力量与选择标准）
+- **ZZ-action** — 执行力诊断（阿德勒心理学，「知道该做但就是不做」）
 
 ## 做内容
 
-- **dbs-content** — 内容创作诊断
-- **dbs-content-risk-check** — 内容发布风险检查（区分机器审核信号与内容实质问题，给出最小修改动作）
-- **dbs-benchmark** — 对标分析
-- **dbs-title-cover-intro** — 根据稿件与拍摄状态生成标题、封面和视频开头
-- **dbs-hook** — 【deprecated】旧版短视频开头优化
-- **dbs-xhs-title** — 【deprecated】旧版小红书标题公式
-- **dbs-ai-check** — AI 写作特征识别
-- **dbs-wechat-html** — 微信公众号 HTML 生成（15 种经典风格，支持预览和全量生成）
-- **dbs-spread** — 传播心理解码
-- **dbs-resonate** — 文稿共鸣诊断
-- **dbs-video-extract** — 短视频信息提取（查询作品／账号数据并生成语音文字稿）
+- **ZZ-content** — 内容创作诊断
+- **ZZ-content-risk-check** — 内容发布风险检查（区分机器审核信号与内容实质问题，给出最小修改动作）
+- **ZZ-benchmark** — 对标分析
+- **ZZ-title-cover-intro** — 根据稿件与拍摄状态生成标题、封面和视频开头
+- **ZZ-hook** — 【deprecated】旧版短视频开头优化
+- **ZZ-xhs-title** — 【deprecated】旧版小红书标题公式
+- **ZZ-ai-check** — AI 写作特征识别
+- **ZZ-wechat-html** — 微信公众号 HTML 生成（15 种经典风格，支持预览和全量生成）
+- **ZZ-spread** — 传播心理解码
+- **ZZ-resonate** — 文稿共鸣诊断
+- **ZZ-video-extract** — 短视频信息提取（查询作品／账号数据并生成语音文字稿）
 
 ## 进阶-内容工程
 
-- **dbs-content-system** — 内容结构化系统（把本地大量内容资产搭成可继续生长的内容工程）
+- **ZZ-content-system** — 内容结构化系统（把本地大量内容资产搭成可继续生长的内容工程）
 
 ## 进阶-知识库
 
-- **dbs-knowledge** — 文件夹知识库（让 Agent 稳定查找、收录、调用和维护本地资料）
+- **ZZ-knowledge** — 文件夹知识库（让 Agent 稳定查找、收录、调用和维护本地资料）
 
 ## 进阶-聊天室
 
-- **dbs-chatroom** — 定向聊天室（推荐专家或指定人物，多角色对话）
-- **dbs-chatroom-austrian** — 奥派经济聊天室（哈耶克 × 米塞斯 × Claude）
+- **ZZ-chatroom** — 定向聊天室（推荐专家或指定人物，多角色对话）
+- **ZZ-chatroom-austrian** — 奥派经济聊天室（哈耶克 × 米塞斯 × Claude）
 
 ## 进阶-状态管理
 
 诊断状态跨会话续接的三件套，攒几次诊断打包成一份报告。
 
-- **dbs-save** — 存档当前诊断
-- **dbs-restore** — 恢复上次诊断
-- **dbs-report** — 多次存档合并成可交付的 markdown 报告
+- **ZZ-save** — 存档当前诊断
+- **ZZ-restore** — 恢复上次诊断
+- **ZZ-report** — 多次存档合并成可交付的 markdown 报告
 
 ## 进阶-决策系统
 
-- **dbs-decision** — 决策系统（把重大决策沉淀成 ~/.dbs/decisions/ 下的本地知识工程）
+- **ZZ-decision** — 决策系统（把重大决策沉淀成 ~/.dbs/decisions/ 下的本地知识工程）
 
 ## 进阶-Agent基建
 
-- **dbs-agent-migration** — Agent 工作台迁移（Claude Code / Codex / Grok / 通用 Agents 多端一致）
-- **dbs-install-skill** — 多端 Skill 安装与同步（安装、查看或卸载本地与外部 Skill）
-- **dbs-skill-maker** — 单个 Skill 制作器（需求分析、真实文件、分级验证与可选 GitHub 发布）
+- **ZZ-agent-migration** — Agent 工作台迁移（Claude Code / Codex / Grok / 通用 Agents 多端一致）
+- **ZZ-install-skill** — 多端 Skill 安装与同步（安装、查看或卸载本地与外部 Skill）
+- **ZZ-skill-maker** — 单个 Skill 制作器（需求分析、真实文件、分级验证与可选 GitHub 发布）
 
 ## 进阶-学习
 
-- **dbs-learning** — 交互式学习（根据上一篇反馈生成下一篇）
+- **ZZ-learning** — 交互式学习（根据上一篇反馈生成下一篇）
 
 ---
 

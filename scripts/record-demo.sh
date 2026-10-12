@@ -51,8 +51,8 @@ detect_marketplace_repo() {
 
 # Remove previously installed demo plugins (safe to call when nothing is installed)
 cleanup_plugins() {
-  claude plugin uninstall dbs-diagnosis@ZZ-skills 2>/dev/null || true
-  claude plugin uninstall dbs@ZZ-skills 2>/dev/null || true
+  claude plugin uninstall ZZ-diagnosis@ZZ-skills 2>/dev/null || true
+  claude plugin uninstall ZZ@ZZ-skills 2>/dev/null || true
   claude plugin marketplace remove ZZ-skills 2>/dev/null || true
 }
 

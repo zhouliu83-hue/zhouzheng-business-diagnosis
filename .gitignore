@@ -13,9 +13,9 @@ books/ZZ-open-tweets/
 AGENTS.md
 CLAUDE.md
 SOURCE_OF_TRUTH.md
-!skills/dbs-content-system/scaffold/root/AGENTS.md
-!skills/dbs-content-system/scaffold/root/CLAUDE.md
-!skills/dbs-content-system/scaffold/root/SOURCE_OF_TRUTH.md
+!skills/ZZ-content-system/scaffold/root/AGENTS.md
+!skills/ZZ-content-system/scaffold/root/CLAUDE.md
+!skills/ZZ-content-system/scaffold/root/SOURCE_OF_TRUTH.md
 dist/
 releases/
 
@@ -33,7 +33,7 @@ integrations/deepseek-harness/
 autoresearch/
 
 # beta skill：本地私有，不发 GitHub
-skills/dbs-beta-*/
+skills/ZZ-beta-*/
 
 # 本机桥接与 Python 缓存
 scripts/setup-symlinks.sh

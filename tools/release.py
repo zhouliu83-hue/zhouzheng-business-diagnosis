@@ -40,7 +40,7 @@ def prepare(version: str, notice: str) -> None:
     notice = normalize_notice(notice)
     marketplace_path = ROOT_DIR / ".claude-plugin" / "marketplace.json"
     readme_path = ROOT_DIR / "README.md"
-    dbs_skill_path = ROOT_DIR / "skills" / "dbs" / "SKILL.md"
+    dbs_skill_path = ROOT_DIR / "skills" / "ZZ" / "SKILL.md"
     update_path = ROOT_DIR / "UPDATE.json"
 
     marketplace = json.loads(marketplace_path.read_text(encoding="utf-8"))
@@ -61,7 +61,7 @@ def prepare(version: str, notice: str) -> None:
         dbs_skill,
         r'(DBS_LOCAL_VERSION=")(\d+\.\d+\.\d+)(")',
         rf"\g<1>{version}\g<3>",
-        "dbs/SKILL.md DBS_LOCAL_VERSION",
+        "ZZ/SKILL.md DBS_LOCAL_VERSION",
     )
 
     update_manifest = {

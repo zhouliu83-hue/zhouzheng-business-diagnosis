@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900" role="img" aria-labelledby="title desc">
   <title id="title">ZZ 单任务动态编排图</title>
-  <desc id="desc">dbs 利用上下文判断当前下一步，直接处理、澄清、组合或对照方法，在当前对话中推进。方法仍匹配时继续，前提失效或不匹配时重新判断，目标完成后结束。</desc>
+  <desc id="desc">ZZ 利用上下文判断当前下一步，直接处理、澄清、组合或对照方法，在当前对话中推进。方法仍匹配时继续，前提失效或不匹配时重新判断，目标完成后结束。</desc>
   <defs>
     <marker id="arrow" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
       <path d="M 0 0 L 10 5 L 0 10 z" fill="#2563EB"/>
@@ -41,7 +41,7 @@
 
   <rect class="node-strong" x="336" y="252" width="176" height="146" rx="18"/>
   <text class="index-inverse" x="360" y="282">02 · COMPOSE</text>
-  <text class="label-inverse" x="360" y="330">/dbs</text>
+  <text class="label-inverse" x="360" y="330">/ZZ</text>
   <text class="body-inverse" x="360" y="362">读取上下文并判断</text>
 
   <path class="line" d="M512 325 H547"/>

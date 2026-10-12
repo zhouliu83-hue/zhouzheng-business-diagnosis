@@ -9,9 +9,9 @@ from pathlib import Path
 
 ROOT_DIR = Path(__file__).resolve().parents[1]
 MARKETPLACE_PATH = ROOT_DIR / ".claude-plugin" / "marketplace.json"
-DBS_SKILL_PATH = ROOT_DIR / "skills" / "dbs" / "SKILL.md"
+DBS_SKILL_PATH = ROOT_DIR / "skills" / "ZZ" / "SKILL.md"
 OFFICIAL_NAMES_PATH = (
-    ROOT_DIR / "skills" / "dbs" / "references" / "official-skill-names.txt"
+    ROOT_DIR / "skills" / "ZZ" / "references" / "official-skill-names.txt"
 )
 
 ROUTING_CONTRACT_MARKER = "## 跨 Skill 交接契约"
@@ -40,24 +40,24 @@ def check_entry_contract(entry_text: str, composition_text: str) -> list[str]:
     errors = []
     for marker in ENTRY_MARKERS:
         if marker not in entry_text:
-            errors.append(f"skills/dbs/SKILL.md 缺少当前目标编排章节或资源：{marker}")
+            errors.append(f"skills/ZZ/SKILL.md 缺少当前目标编排章节或资源：{marker}")
     for marker in COMPOSITION_MARKERS:
         if marker not in composition_text:
             errors.append(f"多方法处理契约缺少章节：{marker}")
-    for path, content in (("skills/dbs/SKILL.md", entry_text),
-                          ("skills/dbs/references/composition-contract.md", composition_text)):
+    for path, content in (("skills/ZZ/SKILL.md", entry_text),
+                          ("skills/ZZ/references/composition-contract.md", composition_text)):
         for rule in RETIRED_ENTRY_RULES:
             if rule in content:
                 errors.append(f"{path} 含已废弃的强制流程：{rule}")
     return errors
 CONDITIONAL_NAVIGATION_MARKER = (
-    "只有用户明确询问下一步，且当前环境已经安装 `/dbs` 时"
+    "只有用户明确询问下一步，且当前环境已经安装 `/ZZ` 时"
 )
 
 DIRECT_HANDOFF_PATTERNS = (
-    re.compile(r"(路由到|转到|交给|衔接)\s*[`*]*(/dbs-[a-z0-9-]+)"),
-    re.compile(r"建议(?:你)?(?:先)?(?:用|去)\s*[`*]*(/dbs-[a-z0-9-]+)"),
-    re.compile(r"试试\s*[`*]*(/dbs-[a-z0-9-]+)"),
+    re.compile(r"(路由到|转到|交给|衔接)\s*[`*]*(/ZZ-[a-z0-9-]+)"),
+    re.compile(r"建议(?:你)?(?:先)?(?:用|去)\s*[`*]*(/ZZ-[a-z0-9-]+)"),
+    re.compile(r"试试\s*[`*]*(/ZZ-[a-z0-9-]+)"),
 )
 
 
@@ -71,23 +71,23 @@ def main() -> None:
         for line in OFFICIAL_NAMES_PATH.read_text(encoding="utf-8").splitlines()
         if line.strip() and not line.lstrip().startswith("#")
     ]
-    expected_snapshot_names = [name for name in formal_names if name != "dbs"]
+    expected_snapshot_names = [name for name in formal_names if name != "ZZ"]
     if snapshot_names != expected_snapshot_names:
         errors.append(
-            "skills/dbs/references/official-skill-names.txt "
+            "skills/ZZ/references/official-skill-names.txt "
             "与 Marketplace 正式条目顺序或内容不一致"
         )
 
     dbs_text = DBS_SKILL_PATH.read_text(encoding="utf-8")
     if ROUTING_CONTRACT_MARKER not in dbs_text:
-        errors.append("skills/dbs/SKILL.md 缺少「跨 Skill 交接契约」")
+        errors.append("skills/ZZ/SKILL.md 缺少「跨 Skill 交接契约」")
     composition_path = DBS_SKILL_PATH.parent / "references/composition-contract.md"
     if not composition_path.is_file():
-        errors.append("缺少 skills/dbs/references/composition-contract.md")
+        errors.append("缺少 skills/ZZ/references/composition-contract.md")
     else:
         errors.extend(check_entry_contract(dbs_text, composition_path.read_text(encoding="utf-8")))
     if "## 模式 B：任务后导航" in dbs_text or "### 导航地图" in dbs_text:
-        errors.append("skills/dbs/SKILL.md 仍含旧版任务后静态导航")
+        errors.append("skills/ZZ/SKILL.md 仍含旧版任务后静态导航")
 
     for name in formal_names:
         skill_path = ROOT_DIR / "skills" / name / "SKILL.md"
@@ -96,10 +96,10 @@ def main() -> None:
             continue
 
         text = skill_path.read_text(encoding="utf-8")
-        if name != "dbs" and CONDITIONAL_NAVIGATION_MARKER not in text:
-            errors.append(f"skills/{name}/SKILL.md 缺少条件式 /dbs 导航规则")
+        if name != "ZZ" and CONDITIONAL_NAVIGATION_MARKER not in text:
+            errors.append(f"skills/{name}/SKILL.md 缺少条件式 /ZZ 导航规则")
 
-        if name == "dbs":
+        if name == "ZZ":
             continue
 
         for line_number, line in enumerate(text.splitlines(), start=1):
@@ -112,22 +112,22 @@ def main() -> None:
                     )
                     break
 
-    save_text = (ROOT_DIR / "skills" / "dbs-save" / "SKILL.md").read_text(
+    save_text = (ROOT_DIR / "skills" / "ZZ-save" / "SKILL.md").read_text(
         encoding="utf-8"
     )
     if "只有用户已经明确选择下一个 Skill" not in save_text:
-        errors.append("dbs-save 的 next_skill 字段缺少「用户明确选择」约束")
+        errors.append("ZZ-save 的 next_skill 字段缺少「用户明确选择」约束")
 
-    restore_text = (ROOT_DIR / "skills" / "dbs-restore" / "SKILL.md").read_text(
+    restore_text = (ROOT_DIR / "skills" / "ZZ-restore" / "SKILL.md").read_text(
         encoding="utf-8"
     )
     if "用户说「就接着上次确认的下一步走」" not in restore_text:
-        errors.append("dbs-restore 缺少用户明确确认 next_skill 后再接续的规则")
+        errors.append("ZZ-restore 缺少用户明确确认 next_skill 后再接续的规则")
 
     guide_text = (ROOT_DIR / "docs" / "新手入门.md").read_text(encoding="utf-8")
     if "**常见衔接：**" in guide_text:
         errors.append("docs/新手入门.md 仍含直接指定下一站的「常见衔接」")
-    repeated_guide_navigation = "**继续推进：** 完成本 Skill 后输入 `/dbs`。"
+    repeated_guide_navigation = "**继续推进：** 完成本 Skill 后输入 `/ZZ`。"
     if repeated_guide_navigation in guide_text:
         errors.append(
             "docs/新手入门.md 仍在每个 Skill 条目后重复动态导航提示"
@@ -183,11 +183,11 @@ def main() -> None:
             print(f"- {error}", file=sys.stderr)
         sys.exit(1)
 
-    leaf_count = len([name for name in formal_names if name != "dbs"])
+    leaf_count = len([name for name in formal_names if name != "ZZ"])
     print(
         "Skill 编排契约静态校验通过（不代表对话行为已验证）："
         f"{len(formal_names)} 个正式 Skill，"
-        f"{leaf_count} 个叶子 Skill 已使用条件式 /dbs 导航"
+        f"{leaf_count} 个叶子 Skill 已使用条件式 /ZZ 导航"
     )
 
 

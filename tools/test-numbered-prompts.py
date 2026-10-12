@@ -11,7 +11,7 @@ from tempfile import TemporaryDirectory
 from unittest.mock import patch
 
 
-script = Path(__file__).resolve().parents[1] / "skills/dbs/scripts/numbered-prompts.py"
+script = Path(__file__).resolve().parents[1] / "skills/ZZ/scripts/numbered-prompts.py"
 spec = importlib.util.spec_from_file_location("numbered_runtime", script)
 assert spec and spec.loader
 runtime = importlib.util.module_from_spec(spec)

@@ -43,7 +43,7 @@ def main() -> None:
 
     for plugin in plugins:
         name = plugin.get("name", "<未命名>")
-        expected_source = "./" if name == "dbs" else f"./skills/{name}"
+        expected_source = "./" if name == "ZZ" else f"./skills/{name}"
         if plugin.get("source") != expected_source:
             errors.append(
                 f"插件 {name} 的 source 为 {plugin.get('source')!r}，"
@@ -54,21 +54,21 @@ def main() -> None:
         if "skills" in plugin:
             errors.append(f"插件 {name} 不应在 marketplace 中重复声明 skills")
 
-    if bundle_manifest.get("name") != "dbs":
-        errors.append("根级 plugin.json 的 name 应为 'dbs'")
+    if bundle_manifest.get("name") != "ZZ":
+        errors.append("根级 plugin.json 的 name 应为 'ZZ'")
     if "version" in bundle_manifest:
         errors.append("根级 plugin.json 不应固定 version，应沿用 marketplace 发布版本")
     bundle_paths = bundle_manifest.get("skills")
     if bundle_paths != expected_paths:
         errors.append(
-            f"dbs 全量入口的 skills 为 {bundle_paths!r}，应为 {expected_paths!r}"
+            f"ZZ 全量入口的 skills 为 {bundle_paths!r}，应为 {expected_paths!r}"
         )
     if any("beta" in path for path in bundle_paths or []):
-        errors.append(f"dbs 全量入口暴露了本地 beta Skill：{bundle_paths!r}")
+        errors.append(f"ZZ 全量入口暴露了本地 beta Skill：{bundle_paths!r}")
     for path in bundle_paths or []:
         skill_file = ROOT_DIR / path.removeprefix("./") / "SKILL.md"
         if not skill_file.is_file():
-            errors.append(f"dbs 全量入口引用了不存在的 {path}/SKILL.md")
+            errors.append(f"ZZ 全量入口引用了不存在的 {path}/SKILL.md")
 
     extra_skill_dirs = sorted(set(published_skill_dirs()) - set(plugin_names))
     if extra_skill_dirs:
@@ -85,7 +85,7 @@ def main() -> None:
 
     print(
         "Marketplace 暴露范围校验通过："
-        f"dbs 全量入口包含 {len(plugin_names)} 个公开 Skill，"
+        f"ZZ 全量入口包含 {len(plugin_names)} 个公开 Skill，"
         f"{len(plugin_names) - 1} 个单 Skill 插件保持隔离"
     )
 

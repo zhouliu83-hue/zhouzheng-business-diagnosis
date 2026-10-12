@@ -12,7 +12,7 @@ version = (ROOT_DIR / "VERSION").read_text(encoding="utf-8").strip()
 marketplace_path = ROOT_DIR / ".claude-plugin" / "marketplace.json"
 marketplace = json.loads(marketplace_path.read_text(encoding="utf-8"))
 readme = (ROOT_DIR / "README.md").read_text(encoding="utf-8")
-dbs_skill = (ROOT_DIR / "skills" / "dbs" / "SKILL.md").read_text(encoding="utf-8")
+dbs_skill = (ROOT_DIR / "skills" / "ZZ" / "SKILL.md").read_text(encoding="utf-8")
 update_path = ROOT_DIR / "UPDATE.json"
 update_manifest = json.loads(update_path.read_text(encoding="utf-8"))
 
@@ -40,10 +40,10 @@ for translation in ROOT_DIR.glob("README.*.md"):
 
 dbs_local_version = re.search(r'DBS_LOCAL_VERSION="([0-9.]+)"', dbs_skill)
 if dbs_local_version is None:
-    errors.append("skills/dbs/SKILL.md 未找到 DBS_LOCAL_VERSION")
+    errors.append("skills/ZZ/SKILL.md 未找到 DBS_LOCAL_VERSION")
 elif dbs_local_version.group(1) != version:
     errors.append(
-        "skills/dbs/SKILL.md 的 DBS_LOCAL_VERSION 为 "
+        "skills/ZZ/SKILL.md 的 DBS_LOCAL_VERSION 为 "
         f"{dbs_local_version.group(1)!r}，VERSION 为 {version!r}"
     )
 
