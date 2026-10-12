@@ -50,7 +50,7 @@ ZZ 常用于这些工作：
 终端需要能够运行 `npx`。执行：
 
 ```bash
-npx -y skills add dontbesilent2025/dbskill -g --all
+npx -y skills add zhouliu83-hue/zhouzheng-business-diagnosis -g --all
 ```
 
 `-g` 表示全局安装，`--all` 表示安装到 Skills CLI 识别的所有 Agent。只想安装到某一个 Agent 时，可以删除 `--all`，然后按 CLI 提示选择目标
@@ -68,7 +68,7 @@ npx -y skills add dontbesilent2025/dbskill -g --all
 在终端运行：
 
 ```bash
-claude plugin marketplace add dontbesilent2025/dbskill
+claude plugin marketplace add zhouliu83-hue/zhouzheng-business-diagnosis
 claude plugin install ZZ@ZZ-skills
 ```
 

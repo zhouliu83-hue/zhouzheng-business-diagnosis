@@ -92,7 +92,7 @@ ZZ 由 [ZZ](https://x.com/dontbesilent) 建立。方法資料包含從 16,152 �
 在終端機執行：
 
 ```bash
-npx -y skills add dontbesilent2025/dbskill -g --all
+npx -y skills add zhouliu83-hue/zhouzheng-business-diagnosis -g --all
 ```
 
 安裝後回到 Agent，輸入 `/ZZ 新手入门` 即可開始。
@@ -102,7 +102,7 @@ npx -y skills add dontbesilent2025/dbskill -g --all
 也可以透過 Claude Code 外掛市集安裝完整工具箱：
 
 ```bash
-claude plugin marketplace add dontbesilent2025/dbskill
+claude plugin marketplace add zhouliu83-hue/zhouzheng-business-diagnosis
 claude plugin install ZZ@ZZ-skills
 ```
 

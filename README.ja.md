@@ -92,7 +92,7 @@ ZZ は [ZZ](https://x.com/dontbesilent) が作成しました。公開投稿 16,
 ターミナルで実行します。
 
 ```bash
-npx -y skills add dontbesilent2025/dbskill -g --all
+npx -y skills add zhouliu83-hue/zhouzheng-business-diagnosis -g --all
 ```
 
 Agent に戻り、`/ZZ 新手入门` と入力して始めてください。
@@ -102,7 +102,7 @@ Agent に戻り、`/ZZ 新手入门` と入力して始めてください。
 Claude Code マーケットプレイスから完全なツールキットをインストールすることもできます。
 
 ```bash
-claude plugin marketplace add dontbesilent2025/dbskill
+claude plugin marketplace add zhouliu83-hue/zhouzheng-business-diagnosis
 claude plugin install ZZ@ZZ-skills
 ```
 

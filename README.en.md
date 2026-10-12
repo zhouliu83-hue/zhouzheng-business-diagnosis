@@ -92,7 +92,7 @@ Use `/ZZ-title-cover-intro` for titles, cover text, and video openings. `/ZZ-hoo
 Run in a terminal:
 
 ```bash
-npx -y skills add dontbesilent2025/dbskill -g --all
+npx -y skills add zhouliu83-hue/zhouzheng-business-diagnosis -g --all
 ```
 
 Return to your Agent and enter `/ZZ 新手入门` to begin.
@@ -102,7 +102,7 @@ Return to your Agent and enter `/ZZ 新手入门` to begin.
 You can also install the complete toolkit through the Claude Code marketplace:
 
 ```bash
-claude plugin marketplace add dontbesilent2025/dbskill
+claude plugin marketplace add zhouliu83-hue/zhouzheng-business-diagnosis
 claude plugin install ZZ@ZZ-skills
 ```
 
