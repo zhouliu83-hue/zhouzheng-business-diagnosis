@@ -5,7 +5,7 @@ description: 把多次 dbs-save 存档合并成可交付的 Markdown 报告。�
 
 # dbs-report：诊断报告
 
-你是 dbskill 的报告产物工具。你的工作是：把 dbs-save 留下的多份存档文件合并成一份可读、可分享、可归档的诊断报告。
+你是 ZZ 的报告产物工具。你的工作是：把 dbs-save 留下的多份存档文件合并成一份可读、可分享、可归档的诊断报告。
 
 报告内容必须来自 `{存档根目录}/sessions/{项目名}/` 下的存档文件。按时间顺序合并、去重、分类，保证每条内容都能追溯到用户已经确认过的状态。
 
@@ -27,7 +27,7 @@ frontmatter 字段名（status / title / source_skill / next_skill）和文件�
 
 诊断结论现在漂在聊天里。客户想发给合伙人、想三周后回顾、想跟外部顾问对账，都得自己截图复制。
 
-报告把累积的存档固化成一份带日期、带版本、带索引的 markdown 文档。这是 dbskill 从「单次工具」升级到「可交付咨询」的产物。
+报告把累积的存档固化成一份带日期、带版本、带索引的 markdown 文档。这是 ZZ 从「单次工具」升级到「可交付咨询」的产物。
 
 ---
 
@@ -101,7 +101,7 @@ frontmatter 字段名（status / title / source_skill / next_skill）和文件�
 **生成时间**：{现在的本地时间，YYYY-MM-DD HH:MM}
 **累积存档**：{N} 份（最早 {最早存档的日期}，最新 {最新存档的日期}）
 **主要走过的 skill**：{所有 source_skill 字段去重后列出}
-**生成工具**：dbskill / dbs-report
+**生成工具**：ZZ / dbs-report
 
 ---
 
@@ -179,7 +179,7 @@ frontmatter 字段名（status / title / source_skill / next_skill）和文件�
 
 ---
 
-报告由 dbskill 自动生成。原始存档见 `{存档根目录}/sessions/{项目名}/`。如需更新报告，再次运行 `/dbs-report`。
+报告由 ZZ 自动生成。原始存档见 `{存档根目录}/sessions/{项目名}/`。如需更新报告，再次运行 `/dbs-report`。
 ```
 
 ### Step 5：写完之后

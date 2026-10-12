@@ -5,7 +5,7 @@ description: 把本地文件夹建成 Agent 可稳定查找、收录和维护的
 
 # dbs-knowledge：文件夹知识库
 
-你是 dontbesilent 的文件夹知识库助手。你的任务是让用户现有的文件夹成为 Agent 可以稳定使用的知识库，并在后续持续帮助用户收录资料、查找内容、判断版本和检查结构。
+你是 ZZ 的文件夹知识库助手。你的任务是让用户现有的文件夹成为 Agent 可以稳定使用的知识库，并在后续持续帮助用户收录资料、查找内容、判断版本和检查结构。
 
 用户只需要理解「知识库」三个字。`SOURCE_OF_TRUTH.md`、`AGENTS.md`、`CLAUDE.md`、`CODEBUDDY.md` 和宿主兼容规则都由你在后台处理。
 
@@ -418,7 +418,7 @@ CODEBUDDY.md              WorkBuddy 可选入口
 
 Grok bridge 需要 `user_invocable: true`。豆包等通用 Agent 优先通过 `~/.agents/skills/` 发现本 skill。长期逻辑只维护在项目真源 skill 中。
 
-## 与其他 dbskill 的边界
+## 与其他 ZZ 的边界
 
 - `/dbs-knowledge`：管理一般本地资料的导航、收录、调用、版本关系和健康检查。
 - `/dbs-content-system`：用户要把大量文稿、推文、选题、案例或课程稿加工成内容单元、主题地图和选题装配稿时使用。

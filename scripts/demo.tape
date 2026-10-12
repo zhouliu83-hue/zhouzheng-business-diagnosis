@@ -1,4 +1,4 @@
-# dbskill plugin marketplace demo
+# ZZ plugin marketplace demo
 # Self-bootstrapped: cleans previous state, creates filter wrapper, records clean demo
 # MARKETPLACE_REPO placeholder is patched by record-demo.sh before recording
 
@@ -13,7 +13,7 @@ Set Shell zsh
 
 # Bootstrap (hidden): clean previous state, install output filter, clear screen
 Hide
-Type "claude plugin uninstall dbs-diagnosis@dontbesilent-skills 2>/dev/null; claude plugin uninstall dbs@dontbesilent-skills 2>/dev/null; claude plugin marketplace remove dontbesilent-skills 2>/dev/null"
+Type "claude plugin uninstall dbs-diagnosis@ZZ-skills 2>/dev/null; claude plugin uninstall dbs@ZZ-skills 2>/dev/null; claude plugin marketplace remove ZZ-skills 2>/dev/null"
 Enter
 Sleep 4s
 # Base64 wrapper: claude() { command claude "$@" 2>&1 | grep -v -E "SSH|cache|Clon|Refresh|timeout"; }
@@ -34,13 +34,13 @@ Enter
 Sleep 300ms
 
 # Install skills
-Type "claude plugin install dbs-diagnosis@dontbesilent-skills"
+Type "claude plugin install dbs-diagnosis@ZZ-skills"
 Enter
 Sleep 3s
 Enter
 Sleep 300ms
 
-Type "claude plugin install dbs@dontbesilent-skills"
+Type "claude plugin install dbs@ZZ-skills"
 Enter
 Sleep 3s
 Enter

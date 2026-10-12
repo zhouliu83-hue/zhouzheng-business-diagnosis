@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Record dbskill plugin marketplace demo GIF
+# Record ZZ plugin marketplace demo GIF
 # Usage: ./scripts/record-demo.sh
 # Output: demo.gif in repo root
 #
@@ -51,9 +51,9 @@ detect_marketplace_repo() {
 
 # Remove previously installed demo plugins (safe to call when nothing is installed)
 cleanup_plugins() {
-  claude plugin uninstall dbs-diagnosis@dontbesilent-skills 2>/dev/null || true
-  claude plugin uninstall dbs@dontbesilent-skills 2>/dev/null || true
-  claude plugin marketplace remove dontbesilent-skills 2>/dev/null || true
+  claude plugin uninstall dbs-diagnosis@ZZ-skills 2>/dev/null || true
+  claude plugin uninstall dbs@ZZ-skills 2>/dev/null || true
+  claude plugin marketplace remove ZZ-skills 2>/dev/null || true
 }
 
 MARKETPLACE_REPO=$(detect_marketplace_repo)

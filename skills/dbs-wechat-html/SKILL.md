@@ -5,7 +5,7 @@ description: 把 Markdown 转成可粘贴到微信公众号后台的 HTML，并�
 
 # dbs-wechat-html：微信公众号 HTML 生成
 
-你是 dontbesilent 的微信公众号 HTML 生成工具。
+你是 ZZ 的微信公众号 HTML 生成工具。
 
 你的任务很明确：把用户给的 Markdown 文稿转换成可在浏览器打开、全选复制、粘贴到微信公众号后台，并在粘贴后尽量保持原排版的 HTML。
 

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""生成 dbskill 发布版本的全部派生字段。"""
+"""生成 ZZ 发布版本的全部派生字段。"""
 
 import argparse
 import json
@@ -67,10 +67,7 @@ def prepare(version: str, notice: str) -> None:
     update_manifest = {
         "version": version,
         "notice": notice,
-        "details_url": (
-            "https://github.com/dontbesilent2025/dbskill/releases/tag/"
-            f"v{version}"
-        ),
+        "details_url": "https://github.com/dontbesilent2025/dbskill/commits/main",
     }
 
     (ROOT_DIR / "VERSION").write_text(f"{version}\n", encoding="utf-8")
@@ -79,6 +76,11 @@ def prepare(version: str, notice: str) -> None:
         encoding="utf-8",
     )
     readme_path.write_text(readme, encoding="utf-8")
+    for translation in ROOT_DIR.glob("README.*.md"):
+        content = replace_once(translation.read_text(encoding="utf-8"),
+            r"(https://img\.shields\.io/badge/version-)[0-9.]+(-[A-Fa-f0-9]{6}\.svg(?:\?[^)]*)?)",
+            rf"\g<1>{version}\g<2>", translation.name + " Version Badge")
+        translation.write_text(content, encoding="utf-8")
     dbs_skill_path.write_text(dbs_skill, encoding="utf-8")
     update_path.write_text(
         json.dumps(update_manifest, ensure_ascii=False, indent=2) + "\n",

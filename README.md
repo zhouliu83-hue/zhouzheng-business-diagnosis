@@ -1,153 +1,240 @@
-# dbskill
+# ZZ
 
 简体中文 | [English](README.en.md) | [日本語](README.ja.md) | [한국어](README.ko.md) | [繁體中文](README.zh-TW.md)
 
-> 面向创业者与内容创作者的中文 AI Skills 工具箱。把真实业务、内容与行动问题交给 Agent，获得清晰判断和可以立刻执行的下一步。
+ZZ 是 ZZ 的中文 AI Skills 工具箱，包含商业判断、内容创作、行动决策、学习和知识管理等能力，可安装到支持 Skills 的 Agent 中使用
 
-[![Version](https://img.shields.io/badge/version-2.18.26-2563EB.svg?style=flat-square)](VERSION)
-[![skills.sh](https://skills.sh/b/dontbesilent2025/dbskill)](https://skills.sh/dontbesilent2025/dbskill)
+[![Version](https://img.shields.io/badge/version-2.18.50-2563EB.svg?style=flat-square)](VERSION)
+[![skills.sh](https://skills.sh/b/dontbesilent2025/dbskill)](https://skills.sh/b/dontbesilent2025/dbskill)
 [![License](https://img.shields.io/badge/license-CC%20BY--NC%204.0-16A34A.svg?style=flat-square)](LICENSE)
 
-**支持：豆包、WorkBuddy、Claude Code、Codex，以及其他支持 Skills 的 Agent。**
+支持豆包、WorkBuddy、Claude Code、Codex 和其他兼容 Skills 的 Agent。项目方法资料从 16,152 条公开推文中筛选整理，包含 4,176 个结构化知识原子。作者：[@ZZ](https://x.com/dontbesilent)
 
-从 16,152 条公开推文中筛选、结构化出 4,176 个知识原子，并将其中的方法沉淀为 31 个可直接调用的 Skills。
+**本次更新：** `/dbs` 在当前对话中直接处理问题，按需组合或对照方法，并明确告知实际使用的 Skill 名称及分工。
 
-**v2.18.26 更新：** `/dbs-install-skill` 用安装、卸载和状态检查管理多端 Skill，入口更容易理解。
+## 目录
 
-[快速开始](#快速开始) · [安装](#安装) · [能力一览](#能力一览) · [公开推文集](#公开推文集) · [完整使用手册](docs/新手入门.md) · [更新日志](https://github.com/dontbesilent2025/dbskill/releases)
+- [ZZ 是什么](#ZZ-是什么)
+- [安装](#安装)
+- [开始使用](#开始使用)
+- [怎样提供任务材料](#怎样提供任务材料)
+- [按任务查找 Skill](#按任务查找-skill)
+- [仓库资料](#仓库资料)
+- [更新、问题与支持](#更新问题与支持)
+- [贡献者](#贡献者)
+- [许可证](#许可证)
 
-![dbskill 动态路由图](docs/skill-link-map-4x3.svg)
+## ZZ 是什么
 
-## 周正skill 解决什么问题
+Skill 是一套针对某类任务编写的 Agent 指令。安装 ZZ 后，可以在 Agent 对话中调用 `/dbs` 或某个具体 Skill，例如 `/dbs-diagnosis`
 
-你不需要先学会一套复杂的方法，也不需要知道该调用哪个工具。把当下的业务、材料、选择或卡点交给 `/dbs`，它会根据对话上下文选择当前适合的 Skill。
+如果你还不知道从哪里开始，把问题交给 `/dbs`。它读取已有信息，判断现在适合直接处理、补充关键事实，还是请你选择方向；需要时使用一个 Skill、组合互补能力，或对照尝试不同方法
 
-| 真实处境 | 你会得到 |
-| --- | --- |
-| 客户总说贵，不知道该改价格、产品还是客群 | 商业模式诊断、风险判断和验证动作 |
-| 有一个选题，却做不出能被人看完的内容 | 内容方向、开头、标题与逐字稿优化 |
-| 知道该做什么，却迟迟推不动 | 对行动卡点的分析和一条可开始的动作 |
-| 反复面对同类选择，经验无法积累 | 可回填的决策记录、规律与阶段快照 |
-| 文稿、选题、案例散落在多个文件夹 | 可持续维护的内容资产工程 |
-| 本地资料很多，希望 Agent 能稳定查找和调用 | 基于文件夹的知识库导航、版本规则与使用入口 |
+`/dbs` 在当前对话中调用合适的方法并继续工作，你无需复制提示词或重复背景。一次聚焦一个目标，可以交付配套结果或保留不同解释；后续依据事实和反馈继续、调整或结束。简单问题可以直接回答，缺少匹配能力时会明确说明
 
-## 快速开始
+ZZ 常用于这些工作：
 
-安装完成后，直接在 Agent 中输入：
-
-```text
-/dbs 我做少儿编程课，已经有 40 个付费学员，但续费率很低。
-我需要判断问题出在产品、定价，还是我找错了客户。
-```
-
-`/dbs` 会读取当前对话信息，选择合适的分析路径。完成一轮后，继续补充新的事实或反馈，再输入 `/dbs`，它会判断当前该推进什么。
-
-已经知道需求时，可以直接调用具体 Skill：
-
-```text
-/dbs-diagnosis 我做面向宝妈的收纳咨询，客户总觉得贵。我该调整什么？
-/dbs-content 我想讲“普通人别急着做个人 IP”，这个选题怎样做成内容？
-/dbs-hook 这是我短视频前 20 秒的逐字稿，帮我优化开头：……
-/dbs-benchmark 我想研究企业服务内容账号，应该找哪些对标？
-/dbs-knowledge 帮我把这个文件夹变成知识库，以后我想直接从里面找资料。
-```
-
-## 能力一览
-
-| 工作目标 | 主要入口 | 常见产出 |
-| --- | --- | --- |
-| 判断生意、产品、定价与客户 | `/dbs-diagnosis` | 商业诊断、风险、验证方案 |
-| 找对标并提炼可学习的部分 | `/dbs-benchmark` | 对标筛选与研究框架 |
-| 先挖掘相关领域、作者和可信理论，再研究历史同构答案 | `/dbs-standard-answer` | 理论锚点、案例矩阵、条件性答案与失效边界 |
-| 做选题、内容、标题与短视频 | `/dbs-content`、`/dbs-hook`、`/dbs-xhs-title` | 内容方向与可发布文案 |
-| 发布前检查敏感词、导流、广告与受限内容 | `/dbs-content-risk-check` | 机器审核信号、内容实质问题与最小修改动作 |
-| 检查文稿共鸣、逻辑与传播性 | `/dbs-resonate`、`/dbs-script-flow`、`/dbs-spread` | 修改意见与优先级 |
-| 澄清概念、目标和问题 | `/dbs-deconstruct`、`/dbs-goal`、`/dbs-good-question` | 可验证的定义与行动目标 |
-| 处理拖延、贪快和行动受阻 | `/dbs-action`、`/dbs-slowisfast` | 卡点分析与下一步动作 |
-| 记录、复盘长期决策 | `/dbs-decision`、`/dbs-save`、`/dbs-restore`、`/dbs-report` | 本地决策档案与报告 |
-| 建立和治理文件夹知识库 | `/dbs-knowledge` | 知识库导航、版本规则、健康检查与 SOT 分层瘦身 |
-| 建立内容资产与多端 Agent 工作台 | `/dbs-content-system`、`/dbs-agent-migration`、`/dbs-install-skill` | 本地工程、主题地图与安装方案 |
-| 审查本地 Skill 风险 | `/dbs-skill-cleaner` | 风险报告与确认后的隔离操作 |
-
-完整的 31 个 Skill、适用时机、输入示例和动态导航方式，见 [新手入门与 Skill 全目录](docs/新手入门.md#skill-全目录)。
+- 判断商业模式、产品、客户、定价和对标
+- 澄清概念、目标、用户需求和复杂问题
+- 开发内容方案，检查文稿共鸣、逻辑、传播性和发布风险
+- 生成标题、封面文字、短视频开头或视频章节导航
+- 处理行动受阻、学习计划和长期决策记录
+- 建立本地文件夹知识库，整理内容资产和 Agent 工作台
 
 ## 安装
 
-### 推荐：Claude Code、豆包、WorkBuddy、Codex 与其他支持 Skills 的 Agent
+选择与你的 Agent 相符的一种安装方式。以下安装命令都在终端运行，不要把它们作为聊天内容发送给 Agent
 
-在终端执行：
+### 使用 Skills CLI 安装到支持的 Agent
+
+终端需要能够运行 `npx`。执行：
 
 ```bash
 npx -y skills add dontbesilent2025/dbskill -g --all
 ```
 
-安装后回到 Agent，输入 `/dbs 新手入门` 即可开始。
+`-g` 表示全局安装，`--all` 表示安装到 Skills CLI 识别的所有 Agent。只想安装到某一个 Agent 时，可以删除 `--all`，然后按 CLI 提示选择目标
 
-### Claude Code 插件市场
+安装后，在目标 Agent 的对话中输入：
 
-也可以通过 Claude Code 插件市场安装完整工具箱：
+```text
+/dbs 新手入门
+```
+
+如果目标 Agent 的命令名称带有命名空间，请使用它显示的完整名称。Claude Code 插件的命名方式见下文
+
+### 使用 Claude Code 插件市场
+
+在终端运行：
 
 ```bash
 claude plugin marketplace add dontbesilent2025/dbskill
-claude plugin install dbs@dontbesilent-skills
+claude plugin install dbs@ZZ-skills
 ```
 
-这个 `dbs` 插件包含 31 个正式业务 Skill 和 1 个 `dbs-update` 系统更新入口。Claude Code 会为插件 Skill 添加命名空间：主入口使用 `/dbs:dbs`，具体能力例如 `/dbs:dbs-diagnosis`。
+安装完整插件后，Claude Code 会为命令添加 `dbs:` 命名空间：主入口是 `/dbs:dbs`，商业诊断是 `/dbs:dbs-diagnosis`，内容创作是 `/dbs:dbs-content`
 
-只想安装一个能力时，可以在插件市场中选择对应插件，例如 `claude plugin install dbs-diagnosis@dontbesilent-skills`。
+只安装一个能力时，可以安装对应插件，例如：
+
+```bash
+claude plugin install dbs-diagnosis@ZZ-skills
+```
 
 ![Claude Code 插件安装演示](demo.gif)
 
+### 安装后没有看到命令
+
+先确认安装命令成功，并确认安装目标是当前正在使用的 Agent。Skills CLI 安装使用短命令，例如 `/dbs`；Claude Code 插件使用带命名空间的命令，例如 `/dbs:dbs`。每项 Skill 的入口以所在 Agent 实际显示的名称为准
+
+## 开始使用
+
+### 第一次使用：先了解入口
+
+在 Agent 对话框输入：
+
+```text
+/dbs 新手入门
+```
+
+主入口会介绍能处理的任务、如何选择 Skill，以及怎样开始。之后可以直接提交你正在处理的问题
+
+### 不确定从哪里开始：把问题交给 `/dbs`
+
+把当前情况和问题写在 `/dbs` 后面。可以说得不完整，Agent 会先利用当前对话中已经提供的信息：
+
+```text
+/dbs 我做少儿编程课，有 40 个付费学员，但续费率很低。我不知道该先检查产品、定价还是客户匹配。
+```
+
+`/dbs` 会从已有材料直接开始，必要时提出一个影响判断的问题。用户偏好决定方向时会给出选项；多个方法有实际用途时会说明分工或比较依据。你继续补充事实即可，无需重发入口命令
+
+如果只想了解适合哪些 Skill，或需要一段带到其他对话的提示词，直接说明即可
+
+### 已经知道要做什么：直接调用 Skill
+
+在命令后附上问题、材料和希望得到的结果：
+
+```text
+/dbs-diagnosis 我做收纳咨询，客户总觉得贵。请帮我判断需要检查哪些因素，并说明还缺哪些信息。
+```
+
+```text
+/dbs-content 我想讲“普通人别急着做个人 IP”。请根据这个选题设计内容方向和论证结构。
+```
+
+```text
+/dbs-title-cover-intro 这是准备拍的短视频稿。请按小红书发布，给我标题、封面文字和开头：粘贴文稿
+```
+
+```text
+/dbs-knowledge 帮我整理这个本地文件夹，建立导航，之后可以按主题查资料。
+```
+
+在 Claude Code 插件方式下，把上述命令换成带命名空间的名称，例如 `/dbs:dbs-diagnosis`
+
+### 使用视频中的三位编号
+
+如果你从 ZZ 的视频中获得了一个三位编号，并且已经安装 `/dbs`，可以直接输入：
+
+```text
+/dbs 123
+```
+
+将 `123` 替换为视频给出的编号。想查看当前可用的编号时，输入：
+
+```text
+/dbs 给我所有隐藏级 skill
+```
+
+编号提示词会在使用时从 GitHub 读取，因此 Agent 需要能够访问 GitHub。编号目录为空或暂时无法联网时，入口会说明当前状态。
+
+### 收到结果后：继续当前任务或重新判断
+
+如果结果还需要补充，直接在当前对话中提供新事实、材料或修改意见。当前 Skill 会接着处理
+
+如果当前任务已经完成，又有新的目标，可以重新输入 `/dbs`，说明新目标。入口会依据当前对话和新目标重新推荐，不需要把前一个任务预先写成固定流程
+
+需要跨对话保留阶段性结论时，可以调用 [`/dbs-save`](skills/dbs-save/SKILL.md) 存档；之后用 [`/dbs-restore`](skills/dbs-restore/SKILL.md) 恢复。存档默认保存在本机 `~/.dbs/`
+
+## 怎样提供任务材料
+
+结果会受到你提供的事实、材料和 Agent 当前工具权限影响。提问时可以按需补充以下信息，不需要为了填满模板而回答无关问题：
+
+| 任务类型 | 建议提供的信息 | 可以提出的要求 |
+| --- | --- | --- |
+| 商业判断 | 产品或服务、客户、价格、成交或流失情况、已尝试的做法 | 判断主要问题、列出依据、说明还需要验证什么 |
+| 内容创作 | 完整选题或文稿、发布平台、目标受众、拍摄状态 | 形成内容方案、检查文稿、生成标题或开头 |
+| 内容检查 | 完整文字、图片或视频材料、准备发布的平台 | 标出具体风险位置并说明最小调整方式 |
+| 个人决策 | 要做的选择、候选方案、时间和资源限制、担心的代价 | 比较方案、记录判断依据、设定回看条件 |
+| 知识库整理 | Agent 可访问的本地文件夹、资料用途、维护方式 | 建立导航、检查版本、按问题查找或收录资料 |
+
+例如，商业问题可以这样描述：
+
+```text
+/dbs-diagnosis 我提供企业收纳咨询，客单价 3,000 元。最近 10 个咨询里有 6 个说贵，3 个没有回复。我试过打折，成交多了但交付时间也变长。请判断下一步先核实什么；如果信息不足，请问我最关键的一个问题。
+```
+
+如果任务需要本地文件、网页访问、视频处理或外部服务，Agent 还必须具备相应的文件访问、联网能力、工具或凭证。比如，视频数据提取和本地视频章节导航的运行条件不同；调用前可查看对应 Skill 的说明
+
+## 按任务查找 Skill
+
+下面列出常见入口。每项链接到 Skill 定义；完整目录包含每项能力的适用时机、输入示例和边界，见[新手入门与 Skill 全目录](docs/新手入门.md#skill-全目录)
+
+| 当前要做的事 | 入口 | 用途 |
+| --- | --- | --- |
+| 不确定该从哪个方法开始 | [`/dbs`](skills/dbs/SKILL.md) | 根据当前问题选择下一步，在对话中直接推进 |
+| 检查商业模式、客户或定价 | [`/dbs-diagnosis`](skills/dbs-diagnosis/SKILL.md) | 判断当前商业问题并形成诊断方向 |
+| 研究可以学习的同行或产品 | [`/dbs-benchmark`](skills/dbs-benchmark/SKILL.md) | 筛选对标并分析可借鉴之处 |
+| 澄清复杂需求或用户购买动机 | [`/dbs-good-question`](skills/dbs-good-question/SKILL.md)、[`/dbs-jtbd`](skills/dbs-jtbd/SKILL.md) | 把模糊问题说清楚，分析用户想完成的任务 |
+| 把选题发展成内容 | [`/dbs-content`](skills/dbs-content/SKILL.md) | 设计内容结构、论证和表达方案 |
+| 检查已写好的稿件 | [`/dbs-resonate`](skills/dbs-resonate/SKILL.md)、[`/dbs-script-flow`](skills/dbs-script-flow/SKILL.md) | 检查受众共鸣、段落衔接和表达流畅度 |
+| 设计标题、封面文字和短视频开头 | [`/dbs-title-cover-intro`](skills/dbs-title-cover-intro/SKILL.md) | 根据文稿和拍摄状态生成或修改配套文案 |
+| 提取短视频数据或语音文字稿 | [`/dbs-video-extract`](skills/dbs-video-extract/SKILL.md) | 根据平台链接获取作品信息和转写内容；部分功能需要外部服务凭证 |
+| 为本地视频添加章节导航 | [`/dbs-video-navigation`](skills/dbs-video-navigation/SKILL.md) | 根据视频或带时间戳字幕生成章节导航和进度条 |
+| 发布前检查内容风险 | [`/dbs-content-risk-check`](skills/dbs-content-risk-check/SKILL.md) | 定位可能的审核信号和需要调整的内容 |
+| 梳理行动阻滞或长期选择 | [`/dbs-action`](skills/dbs-action/SKILL.md)、[`/dbs-decision`](skills/dbs-decision/SKILL.md) | 分析执行卡点，记录并复盘决策 |
+| 整理本地文件供 Agent 查找 | [`/dbs-knowledge`](skills/dbs-knowledge/SKILL.md) | 建立和维护文件夹知识库 |
+
+`dbs-hook` 和 `dbs-xhs-title` 是旧版兼容入口。新任务请使用 `dbs-title-cover-intro`
+
+## 仓库资料
+
+安装 Skills 与阅读仓库资料是两种不同的使用方式。公开推文集、知识原子和知识包均可在仓库中查阅；Skills CLI 安装 Skill 文件，不会自动下载整套公开推文集
+
+| 资料 | 用途 |
+| --- | --- |
+| [公开推文集（Markdown）](books/ZZ-开源推文集.md) | 搜索、阅读、复制或交给 AI 分析 |
+| [公开推文集（PDF）](books/ZZ-开源推文集.pdf) | 阅读和保存 |
+| [原子库说明](知识库/原子库/README.md) | 查看数据范围、字段和使用方式 |
+| [知识原子数据](知识库/原子库/atoms.jsonl) | 用于自建检索、分析或 RAG 流程 |
+| [Skill 知识包](知识库/Skill知识包) | 查阅按 Skill 整理的方法资料 |
+
+## 更新、问题与支持
+
 ### 更新
 
-已安装 dbskill 时，直接对当前 Agent 说：
+已安装 ZZ 时，在 Agent 对话中说：
 
 ```text
-更新 dbskill
+更新 ZZ
 ```
 
-它会同步官方 dbskill，不会修改你在 `~/.dbs/` 中的存档、报告和决策记录。版本变化见 [GitHub Releases](https://github.com/dontbesilent2025/dbskill/releases)。
+系统更新入口会同步官方 ZZ，并保留 `~/.dbs/` 中的存档、报告和决策记录。也可以查看[更新记录](https://github.com/dontbesilent2025/dbskill/commits/main)
 
-## dbskill 怎样工作
+### 获取帮助
 
-```text
-真实任务
-   ↓
-/dbs 读取上下文并选择当前入口
-   ↓
-一个 Skill 完成诊断、产出或记录
-   ↓
-补充结果与反馈，再决定下一步
-```
+- [新手入门与 Skill 全目录](docs/新手入门.md)
+- [提交问题或建议](https://github.com/dontbesilent2025/dbskill/issues)
+- [付费答疑群说明](https://mp.weixin.qq.com/s/RpwNjMo4M_er4GOrfCYt1g)
+- 作者：[@ZZ](https://x.com/dontbesilent) · [小红书](https://xhslink.com/m/637xuspR4iI) · [抖音](https://v.douyin.com/pRUDhpBqOrc/)
 
-dbskill 的重点是推进眼前真实的任务。它会先处理当前最有价值的结点，再根据实际结果衔接后续工作。
+## 贡献者
 
-## 知识库与本地记录
+`dbs-content-risk-check` 的敏感词检查能力由以下共创者共同完善：
 
-仓库公开了 4,176 条结构化知识原子、按 Skill 整理的方法论文档与高频概念词典。
-
-- 想查看数据范围和字段，阅读 [原子库说明](知识库/原子库/README.md)。
-- 想构建自己的 RAG，可使用 `知识库/原子库/atoms.jsonl`。
-- 想了解各项方法，浏览 [Skill 知识包](知识库/Skill知识包)。
-- 想把自己的本地文件夹直接当作知识库，使用 `/dbs-knowledge` 建立导航并持续查找、收录和调用资料。
-- 想跨对话保留工作，使用 `/dbs-save`、`/dbs-restore` 与 `/dbs-report`。数据默认保存在用户本机的 `~/.dbs/`。
-
-## 公开推文集
-
-公开推文集收录经过整理的 dontbesilent 推文原文，提供两种格式：
-
-- [Markdown 阅读版](books/dontbesilent-开源推文集.md)：适合搜索、复制和交给 AI 分析。
-- [PDF 阅读版](books/dontbesilent-开源推文集.pdf)：适合完整阅读和下载保存。
-
-推文集与 Skills 安装包相互独立。执行 `npx -y skills add dontbesilent2025/dbskill -g --all` 时，安装的是 Skills，不会自动下载推文集。
-
-![dbskill 知识来源图](docs/knowledge-pipeline.svg)
-
+- [@Ronnie2025](https://github.com/Ronnie2025)
+- [@非著名投放小沈](https://xhslink.cn/m/4NSBjmZTC1j)
 
 ## 许可证
 
-本项目采用 [CC BY-NC 4.0](LICENSE) 许可证。
-
-- 个人使用、学习、研究与非商业项目可以直接使用。
-- 公开发布衍生作品时，请注明来源。
-- 商业用途需要单独授权，请联系作者。
+本项目采用 [CC BY-NC 4.0](LICENSE) 许可证。个人学习、研究和非商业使用请注明来源；商业用途请联系作者获取授权

@@ -5,7 +5,7 @@ description: 审计项目规则文件、识别真源、统一命名并生成桥�
 
 # dbs-agent-migration：Agent 工作台迁移
 
-你是 dontbesilent 的 Agent 工作台迁移工具。你的任务是把一个项目从混乱、半迁移、不可维护的状态，整理成一套可长期维护的 Agent 工作台。你要完成的工作包括审计规则文件、识别真源、统一命名、生成 bridge 和验证结构。
+你是 ZZ 的 Agent 工作台迁移工具。你的任务是把一个项目从混乱、半迁移、不可维护的状态，整理成一套可长期维护的 Agent 工作台。你要完成的工作包括审计规则文件、识别真源、统一命名、生成 bridge 和验证结构。
 
 **这不是安装教程。也不是脚本执行器。** 你做的是一套带审计、收编、命名、桥接和验证的迁移流程。
 
@@ -231,7 +231,7 @@ Grok Build（Grok TUI）对 bridge 有明确要求：
 命名规则：
 
 1. 每个 Skill 只保留 1 个可调用名。
-2. 可调用名使用小写英文 kebab-case；dbskill 正式 Skill 使用 `dbs-` 前缀，例如 `dbs-good-question`。
+2. 可调用名使用小写英文 kebab-case；ZZ 正式 Skill 使用 `dbs-` 前缀，例如 `dbs-good-question`。
 3. 目录名、frontmatter 的 `name`、bridge 目录名和文档中的斜杠调用必须完全一致。
 4. 中文名称只可作为说明标题和自然语言意图，不能作为 `/` 调用别名。
 5. Codex 的 `agents/openai.yaml` 中，`interface.display_name` 必须与英文标准名完全一致，不能添加 `DBS｜`、中文功能名或其他展示前缀。

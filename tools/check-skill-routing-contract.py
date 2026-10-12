@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""校验正式 Skill 的单步路由与跨 Skill 交接契约。"""
+"""静态检查当前目标编排与交接契约；实际行为需另做对话验收。"""
 
 import json
 import re
@@ -10,8 +10,46 @@ from pathlib import Path
 ROOT_DIR = Path(__file__).resolve().parents[1]
 MARKETPLACE_PATH = ROOT_DIR / ".claude-plugin" / "marketplace.json"
 DBS_SKILL_PATH = ROOT_DIR / "skills" / "dbs" / "SKILL.md"
+OFFICIAL_NAMES_PATH = (
+    ROOT_DIR / "skills" / "dbs" / "references" / "official-skill-names.txt"
+)
 
-ROUTING_CONTRACT_MARKER = "### 跨 Skill 交接契约"
+ROUTING_CONTRACT_MARKER = "## 跨 Skill 交接契约"
+ENTRY_MARKERS = (
+    "## 模式 B：任务编排与执行",
+    "### 2．选择当前最有价值的下一步",
+    "### 4．在当前对话中执行",
+    "### 5．根据反馈继续或调整",
+    "scripts/list-official-skills.py",
+    "references/composition-contract.md",
+)
+COMPOSITION_MARKERS = ("## 二、互补组合", "## 三、对照尝试", "## 四、停止与调整")
+# 防止重新引入已经移除的全局强制暂停与单一结论约束。
+# 此处检查明确的旧指令，不能替代模型行为测试。
+RETIRED_ENTRY_RULES = (
+    "本轮不得执行入选 Skill",
+    "提示词生成后立即结束当前轮次",
+    "输出推荐和组合提示词后立即结束",
+    "业务结论全部留给用户下一轮发送提示词后生成",
+    "用户只有 1 个最终任务和 1 份最终交付物",
+    "最终只交付一份由主 Skill 统领的结果",
+)
+
+
+def check_entry_contract(entry_text: str, composition_text: str) -> list[str]:
+    errors = []
+    for marker in ENTRY_MARKERS:
+        if marker not in entry_text:
+            errors.append(f"skills/dbs/SKILL.md 缺少当前目标编排章节或资源：{marker}")
+    for marker in COMPOSITION_MARKERS:
+        if marker not in composition_text:
+            errors.append(f"多方法处理契约缺少章节：{marker}")
+    for path, content in (("skills/dbs/SKILL.md", entry_text),
+                          ("skills/dbs/references/composition-contract.md", composition_text)):
+        for rule in RETIRED_ENTRY_RULES:
+            if rule in content:
+                errors.append(f"{path} 含已废弃的强制流程：{rule}")
+    return errors
 CONDITIONAL_NAVIGATION_MARKER = (
     "只有用户明确询问下一步，且当前环境已经安装 `/dbs` 时"
 )
@@ -28,9 +66,28 @@ def main() -> None:
     formal_names = [plugin["name"] for plugin in marketplace.get("plugins", [])]
     errors: list[str] = []
 
+    snapshot_names = [
+        line.strip()
+        for line in OFFICIAL_NAMES_PATH.read_text(encoding="utf-8").splitlines()
+        if line.strip() and not line.lstrip().startswith("#")
+    ]
+    expected_snapshot_names = [name for name in formal_names if name != "dbs"]
+    if snapshot_names != expected_snapshot_names:
+        errors.append(
+            "skills/dbs/references/official-skill-names.txt "
+            "与 Marketplace 正式条目顺序或内容不一致"
+        )
+
     dbs_text = DBS_SKILL_PATH.read_text(encoding="utf-8")
     if ROUTING_CONTRACT_MARKER not in dbs_text:
         errors.append("skills/dbs/SKILL.md 缺少「跨 Skill 交接契约」")
+    composition_path = DBS_SKILL_PATH.parent / "references/composition-contract.md"
+    if not composition_path.is_file():
+        errors.append("缺少 skills/dbs/references/composition-contract.md")
+    else:
+        errors.extend(check_entry_contract(dbs_text, composition_path.read_text(encoding="utf-8")))
+    if "## 模式 B：任务后导航" in dbs_text or "### 导航地图" in dbs_text:
+        errors.append("skills/dbs/SKILL.md 仍含旧版任务后静态导航")
 
     for name in formal_names:
         skill_path = ROOT_DIR / "skills" / name / "SKILL.md"
@@ -81,6 +138,20 @@ def main() -> None:
     if guide_text.count(shared_guide_navigation) != 1:
         errors.append("docs/新手入门.md 应且只能保留 1 处统一动态导航说明")
 
+    retired_doc_rules = (
+        "你发送该提示词后",
+        "推荐的 Skill 才开始完成具体任务",
+        "生成下一段可执行提示词",
+        "It generates a directly usable task prompt",
+        "そのまま送信できるタスクプロンプトを生成",
+        "바로 보낼 수 있는 작업 프롬프트를 생성",
+        "生成一段可以直接繼續發送的提示詞",
+    )
+    for path in [ROOT_DIR / "docs/新手入门.md", *ROOT_DIR.glob("README*.md")]:
+        for rule in retired_doc_rules:
+            if rule in path.read_text(encoding="utf-8"):
+                errors.append(f"{path.relative_to(ROOT_DIR)} 仍描述已移除的复制提示词流程：{rule}")
+
     readme_text = (ROOT_DIR / "README.md").read_text(encoding="utf-8")
     if "常见衔接方式" in readme_text:
         errors.append("README.md 仍把文档描述为「常见衔接方式」")
@@ -88,8 +159,9 @@ def main() -> None:
     route_map_text = (ROOT_DIR / "docs" / "skill-link-map.mmd").read_text(
         encoding="utf-8"
     )
-    if "没有明确／不确定" not in route_map_text or "回到 /dbs" not in route_map_text:
-        errors.append("docs/skill-link-map.mmd 未体现未明确下一步时回到 /dbs")
+    for marker in ("当前任务未完成，方法仍匹配", "继续当前 Skill", "前提失效或方法不匹配", "当前目标已完成"):
+        if marker not in route_map_text:
+            errors.append(f"docs/skill-link-map.mmd 缺少继续、调整或完成条件：{marker}")
 
     route_svg_text = (ROOT_DIR / "docs" / "skill-link-map-4x3.svg").read_text(
         encoding="utf-8"
@@ -106,14 +178,14 @@ def main() -> None:
             )
 
     if errors:
-        print("Skill 路由契约校验失败：", file=sys.stderr)
+        print("Skill 编排契约校验失败：", file=sys.stderr)
         for error in errors:
             print(f"- {error}", file=sys.stderr)
         sys.exit(1)
 
     leaf_count = len([name for name in formal_names if name != "dbs"])
     print(
-        "Skill 路由契约校验通过："
+        "Skill 编排契约静态校验通过（不代表对话行为已验证）："
         f"{len(formal_names)} 个正式 Skill，"
         f"{leaf_count} 个叶子 Skill 已使用条件式 /dbs 导航"
     )

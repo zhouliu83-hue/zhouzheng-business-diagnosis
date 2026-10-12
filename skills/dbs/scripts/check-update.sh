@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# dbskill 版本检查：24 小时内最多联网一次，有新版时输出一行用户提醒。
+# ZZ 版本检查：24 小时内最多联网一次，有新版时输出一行用户提醒。
 
 set -uo pipefail
 
@@ -90,5 +90,5 @@ version_is_higher() {
 }
 
 if version_is_higher "$REMOTE_VERSION" "$LOCAL_VERSION"; then
-  printf 'dbskill v%s：%s 回复 1，我现在帮你更新。\n' "$REMOTE_VERSION" "$NOTICE"
+  printf 'ZZ v%s：%s 回复 1，我现在帮你更新。\n' "$REMOTE_VERSION" "$NOTICE"
 fi

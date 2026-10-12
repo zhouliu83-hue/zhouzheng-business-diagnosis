@@ -44,4 +44,4 @@ jobs:
           gh release create "${GITHUB_REF_NAME}" \
             --title "${GITHUB_REF_NAME}：${NOTICE}" \
             --generate-notes \
-            "dist/skills/dbskill-${VERSION}.zip"
+            "dist/skills/ZZ-${VERSION}.zip"

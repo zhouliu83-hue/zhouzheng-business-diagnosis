@@ -28,7 +28,7 @@ mkdir -p "$HOME_ONE"
 write_manifest "$MANIFEST" "2.18.22" "新增版本提醒，用户可以先了解主要变化，再用一句回复完成更新。"
 
 OUTPUT="$(HOME="$HOME_ONE" DBS_UPDATE_URL="file://$MANIFEST" bash "$CHECK_SCRIPT" "2.18.21")"
-assert_contains "$OUTPUT" "dbskill v2.18.22"
+assert_contains "$OUTPUT" "ZZ v2.18.22"
 assert_contains "$OUTPUT" "新增版本提醒"
 assert_contains "$OUTPUT" "回复 1，我现在帮你更新"
 
@@ -42,7 +42,7 @@ HOME_TWO="$TEST_DIR/home-two"
 mkdir -p "$HOME_TWO/.dbs"
 printf '损坏的时间戳\n' > "$HOME_TWO/.dbs/update_check_at"
 CORRUPT_CACHE_OUTPUT="$(HOME="$HOME_TWO" DBS_UPDATE_URL="file://$MANIFEST" bash "$CHECK_SCRIPT" "2.18.21")"
-assert_contains "$CORRUPT_CACHE_OUTPUT" "dbskill v2.18.22"
+assert_contains "$CORRUPT_CACHE_OUTPUT" "ZZ v2.18.22"
 
 HOME_THREE="$TEST_DIR/home-three"
 mkdir -p "$HOME_THREE"
@@ -62,4 +62,4 @@ INVALID_OUTPUT="$(HOME="$HOME_FOUR" DBS_UPDATE_URL="file://$MANIFEST" bash "$CHE
   exit 1
 }
 
-printf 'dbskill 更新检查测试通过\n'
+printf 'ZZ 更新检查测试通过\n'

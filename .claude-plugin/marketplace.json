@@ -1,16 +1,16 @@
 {
-  "name": "dontbesilent-skills",
+  "name": "ZZ-skills",
   "owner": {
-    "name": "dontbesilent2025"
+    "name": "ZZ"
   },
   "metadata": {
-    "description": "dontbesilent 商业诊断工具箱 — 将累计推文中经过筛选的内容整理为 4176 个知识原子、31 个商业 Skill 和 1 个系统更新入口",
+    "description": "ZZ 商业诊断工具箱 — 将累计推文中经过筛选的内容整理为 4176 个知识原子、31 个商业 Skill 和 1 个系统更新入口",
     "version": "2.18.26"
   },
   "plugins": [
     {
       "name": "dbs",
-      "description": "dontbesilent 商业工具箱完整入口。安装 31 个正式业务 Skill 和 1 个系统更新入口，由 /dbs 根据问题自动路由。",
+      "description": "ZZ 商业工具箱完整入口。安装 31 个正式业务 Skill 和 1 个系统更新入口，由 /dbs 根据问题自动路由。",
       "source": "./",
       "strict": true,
       "version": "2.18.26",
@@ -25,13 +25,13 @@
     },
     {
       "name": "dbs-update",
-      "description": "dbskill 系统更新入口。用户说「更新 dbskill」时，同步官方 dbskill，不更新其他 Skill 或用户存档。",
+      "description": "ZZ 系统更新入口。用户说「更新 ZZ」时，同步官方 ZZ，不更新其他 Skill 或用户存档。",
       "source": "./skills/dbs-update",
       "strict": true,
       "version": "2.18.26",
       "category": "workflow-infrastructure",
       "keywords": [
-        "dbskill",
+        "ZZ",
         "update",
         "upgrade",
         "maintenance",
@@ -40,7 +40,7 @@
     },
     {
       "name": "dbs-diagnosis",
-      "description": "dontbesilent 商业模式诊断。自动识别具体商业困境或全面检查需求，定位关键问题。",
+      "description": "ZZ 商业模式诊断。自动识别具体商业困境或全面检查需求，定位关键问题。",
       "source": "./skills/dbs-diagnosis",
       "strict": true,
       "version": "2.18.26",
@@ -55,7 +55,7 @@
     },
     {
       "name": "dbs-benchmark",
-      "description": "dontbesilent 对标分析。用五重过滤法帮你找到值得模仿的对标，排除一切关于「我」的噪音。",
+      "description": "ZZ 对标分析。用五重过滤法帮你找到值得模仿的对标，排除一切关于「我」的噪音。",
       "source": "./skills/dbs-benchmark",
       "strict": true,
       "version": "2.18.26",
@@ -89,7 +89,7 @@
     },
     {
       "name": "dbs-action",
-      "description": "dontbesilent 执行力诊断。用阿德勒心理学框架诊断你「知道该做什么但就是不做」的真正原因。",
+      "description": "ZZ 执行力诊断。用阿德勒心理学框架诊断你「知道该做什么但就是不做」的真正原因。",
       "source": "./skills/dbs-action",
       "strict": true,
       "version": "2.18.26",
@@ -104,7 +104,7 @@
     },
     {
       "name": "dbs-content",
-      "description": "dontbesilent 内容创作诊断。选题通过后，诊断怎么把这个选题做成好内容。",
+      "description": "ZZ 内容创作诊断。选题通过后，诊断怎么把这个选题做成好内容。",
       "source": "./skills/dbs-content",
       "strict": true,
       "version": "2.18.26",
@@ -135,7 +135,7 @@
     },
     {
       "name": "dbs-content-system",
-      "description": "dontbesilent 内容结构化系统。把本地大量文稿、推文、选题、案例和课程稿搭成一个可持续生长的内容结构化工程：先审计内容规模与边界，再建立新工程、复制素材、抽取内容单元、生成主题地图与选题装配稿。",
+      "description": "ZZ 内容结构化系统。把本地大量文稿、推文、选题、案例和课程稿搭成一个可持续生长的内容结构化工程：先审计内容规模与边界，再建立新工程、复制素材、抽取内容单元、生成主题地图与选题装配稿。",
       "source": "./skills/dbs-content-system",
       "strict": true,
       "version": "2.18.26",
@@ -151,7 +151,7 @@
     },
     {
       "name": "dbs-knowledge",
-      "description": "dontbesilent 文件夹知识库。把本地文件夹变成 Agent 能稳定查找、收录、调用和维护的知识库，支持知识库导航、轻量更新、版本判断、健康检查及 SOT 瘦身与分层治理。",
+      "description": "ZZ 文件夹知识库。把本地文件夹变成 Agent 能稳定查找、收录、调用和维护的知识库，支持知识库导航、轻量更新、版本判断、健康检查及 SOT 瘦身与分层治理。",
       "source": "./skills/dbs-knowledge",
       "strict": true,
       "version": "2.18.26",
@@ -167,7 +167,7 @@
     },
     {
       "name": "dbs-hook",
-      "description": "dontbesilent 短视频开头优化。诊断开头问题 + 生成优化方案。",
+      "description": "ZZ 短视频开头优化。诊断开头问题 + 生成优化方案。",
       "source": "./skills/dbs-hook",
       "strict": true,
       "version": "2.18.26",
@@ -199,7 +199,7 @@
     },
     {
       "name": "dbs-deconstruct",
-      "description": "dontbesilent 概念拆解。用维特根斯坦 + 奥派经济学的方法，把模糊的商业概念拆到原子级别。",
+      "description": "ZZ 概念拆解。用维特根斯坦 + 奥派经济学的方法，把模糊的商业概念拆到原子级别。",
       "source": "./skills/dbs-deconstruct",
       "strict": true,
       "version": "2.18.26",
@@ -245,7 +245,7 @@
     },
     {
       "name": "dbs-ai-check",
-      "description": "dontbesilent AI 写作特征识别。扫描文案中的 AI 生成痕迹，输出检测报告。默认只诊断不改。",
+      "description": "ZZ AI 写作特征识别。扫描文案中的 AI 生成痕迹，输出检测报告。默认只诊断不改。",
       "source": "./skills/dbs-ai-check",
       "strict": true,
       "version": "2.18.26",
@@ -276,7 +276,7 @@
     },
     {
       "name": "dbs-slowisfast",
-      "description": "dontbesilent 慢就是快。帮创业者找到看起来更慢但长期更快的方法，用摩擦建造资产。",
+      "description": "ZZ 慢就是快。帮创业者找到看起来更慢但长期更快的方法，用摩擦建造资产。",
       "source": "./skills/dbs-slowisfast",
       "strict": true,
       "version": "2.18.26",
@@ -376,7 +376,7 @@
     },
     {
       "name": "dbs-goal",
-      "description": "dontbesilent 目标清晰化。提取已有约束，只追问会改变执行或验收的关键信息；明确任务直接放行，模糊目标整理成可行动、可检查的交付物。",
+      "description": "ZZ 目标清晰化。提取已有约束，只追问会改变执行或验收的关键信息；明确任务直接放行，模糊目标整理成可行动、可检查的交付物。",
       "source": "./skills/dbs-goal",
       "strict": true,
       "version": "2.18.26",
@@ -391,7 +391,7 @@
     },
     {
       "name": "dbs-good-question",
-      "description": "dontbesilent 好问题生成器。把模糊问题改写成 Agent 可推理、可批评、可验证的问题说明书，并判断自动化解决程度。",
+      "description": "ZZ 好问题生成器。把模糊问题改写成 Agent 可推理、可批评、可验证的问题说明书，并判断自动化解决程度。",
       "source": "./skills/dbs-good-question",
       "strict": true,
       "version": "2.18.26",
@@ -408,7 +408,7 @@
     },
     {
       "name": "dbs-jtbd",
-      "description": "dontbesilent JTBD 任务澄清。识别用户在具体情境中想推进的进展、切换方案的力量与可观察的选择标准，用于产品、内容、服务、决策和 AI 提示词。",
+      "description": "ZZ JTBD 任务澄清。识别用户在具体情境中想推进的进展、切换方案的力量与可观察的选择标准，用于产品、内容、服务、决策和 AI 提示词。",
       "source": "./skills/dbs-jtbd",
       "strict": true,
       "version": "2.18.26",
@@ -424,7 +424,7 @@
     },
     {
       "name": "dbs-decision",
-      "description": "dontbesilent 个人决策系统。把任何一个需要长期跟踪的领域（业务、关系、健康、职业、学习、投资……）做成本地知识工程：四层结构（事实/规律/定格/待解）+ 来源标签 + 写完不改的快照 + 能炼出规律的概念库。支持立案、回填、状态画像、隐私模式。",
+      "description": "ZZ 个人决策系统。把任何一个需要长期跟踪的领域（业务、关系、健康、职业、学习、投资……）做成本地知识工程：四层结构（事实/规律/定格/待解）+ 来源标签 + 写完不改的快照 + 能炼出规律的概念库。支持立案、回填、状态画像、隐私模式。",
       "source": "./skills/dbs-decision",
       "strict": true,
       "version": "2.18.26",
@@ -441,7 +441,7 @@
     },
     {
       "name": "dbs-learning",
-      "description": "dontbesilent 交互式学习。把一个课题拆成连续学习文章，根据用户在上一篇中的反馈调整下一篇的深度、角度和节奏。",
+      "description": "ZZ 交互式学习。把一个课题拆成连续学习文章，根据用户在上一篇中的反馈调整下一篇的深度、角度和节奏。",
       "source": "./skills/dbs-learning",
       "strict": true,
       "version": "2.18.26",

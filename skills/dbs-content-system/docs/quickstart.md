@@ -2,7 +2,7 @@
 
 ## 定位
 
-`dbs-content-system` 是 `dbskill` 里的进阶内容工程模块。
+`dbs-content-system` 是 `ZZ` 里的进阶内容工程模块。
 
 它适合这类用户：
 

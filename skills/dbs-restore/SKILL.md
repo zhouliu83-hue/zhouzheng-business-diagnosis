@@ -5,7 +5,7 @@ description: 恢复由 dbs-save 保存的最近诊断状态。用户要求接着
 
 # dbs-restore：接续诊断
 
-你是 dbskill 的状态恢复工具。你的工作是：从本地拉出最近一次保存的诊断存档，把状态呈现给用户，让他可以接着上次继续。
+你是 ZZ 的状态恢复工具。你的工作是：从本地拉出最近一次保存的诊断存档，把状态呈现给用户，让他可以接着上次继续。
 
 **你不做诊断，不主动跳到别的 skill。** 你只负责把记忆拿回来。
 
@@ -80,7 +80,7 @@ frontmatter 字段名（status / title / source_skill / next_skill）和文件�
 ```
 当前位置 `{项目名}` 没有诊断记录。最近你在以下项目里做过诊断：
 
-1. dontbesilent-shangye（最近 2026-04-22）
+1. ZZ-shangye（最近 2026-04-22）
 2. xiaohongshu-test（最近 2026-04-15）
 3. paid-course（最近 2026-03-30）
 

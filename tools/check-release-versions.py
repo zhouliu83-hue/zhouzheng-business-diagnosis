@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""校验 dbskill 发布版本在全部公开入口保持一致。"""
+"""校验 ZZ 发布版本在全部公开入口保持一致。"""
 
 import json
 import re
@@ -33,6 +33,11 @@ elif badge_version.group(1) != version:
         f"README Version Badge 为 {badge_version.group(1)!r}，VERSION 为 {version!r}"
     )
 
+for translation in ROOT_DIR.glob("README.*.md"):
+    match = re.search(r"badge/version-([0-9.]+)-", translation.read_text(encoding="utf-8"))
+    if not match or match.group(1) != version:
+        errors.append(f"{translation.name} Version Badge 与 VERSION 不一致")
+
 dbs_local_version = re.search(r'DBS_LOCAL_VERSION="([0-9.]+)"', dbs_skill)
 if dbs_local_version is None:
     errors.append("skills/dbs/SKILL.md 未找到 DBS_LOCAL_VERSION")
@@ -54,12 +59,10 @@ if not isinstance(notice, str) or not 20 <= len(notice.strip()) <= 80:
 elif notice != notice.strip() or any(character in notice for character in "\r\n\t"):
     errors.append("UPDATE.json notice 不能包含首尾空白、换行或制表符")
 
-expected_details_url = (
-    "https://github.com/dontbesilent2025/dbskill/releases/tag/" f"v{version}"
-)
+expected_details_url = "https://github.com/dontbesilent2025/dbskill/commits/main"
 if update_manifest.get("details_url") != expected_details_url:
     errors.append(
-        "UPDATE.json details_url 必须指向当前版本的官方 GitHub Release"
+        "UPDATE.json details_url 必须指向官方 main 分支提交记录"
     )
 
 for plugin in marketplace.get("plugins", []):
