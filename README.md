@@ -63,24 +63,9 @@ npx -y skills add zhouliu83-hue/zhouzheng-business-diagnosis -g --all
 
 如果目标 Agent 的命令名称带有命名空间，请使用它显示的完整名称。Claude Code 插件的命名方式见下文
 
-### 使用 Claude Code 插件市场
-
-在终端运行：
-
-```bash
-claude plugin marketplace add zhouliu83-hue/zhouzheng-business-diagnosis
-claude plugin install ZZ@ZZ-skills
-```
-
 安装完整插件后，Claude Code 会为命令添加 `ZZ:` 命名空间：主入口是 `/ZZ:ZZ`，商业诊断是 `/ZZ:ZZ-diagnosis`，内容创作是 `/ZZ:ZZ-content`
 
 只安装一个能力时，可以安装对应插件，例如：
-
-```bash
-claude plugin install ZZ-diagnosis@ZZ-skills
-```
-
-![Claude Code 插件安装演示](demo.gif)
 
 ### 安装后没有看到命令
 
