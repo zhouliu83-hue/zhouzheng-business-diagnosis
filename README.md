@@ -209,16 +209,6 @@ npx -y skills add zhouliu83-hue/zhouzheng-business-diagnosis -g --all
 ### 获取帮助
 
 - [新手入门与 Skill 全目录](docs/新手入门.md)
-- [提交问题或建议](https://github.com/dontbesilent2025/dbskill/issues)
-- [付费答疑群说明](https://mp.weixin.qq.com/s/RpwNjMo4M_er4GOrfCYt1g)
-- 作者：[@ZZ](https://x.com/dontbesilent) · [小红书](https://xhslink.com/m/637xuspR4iI) · [抖音](https://v.douyin.com/pRUDhpBqOrc/)
-
-## 贡献者
-
-`ZZ-content-risk-check` 的敏感词检查能力由以下共创者共同完善：
-
-- [@Ronnie2025](https://github.com/Ronnie2025)
-- [@非著名投放小沈](https://xhslink.cn/m/4NSBjmZTC1j)
 
 ## 许可证
 
